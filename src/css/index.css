@@ -1,0 +1,20 @@
+a {
+  text-decoration: none;
+}
+
+.social-links {
+  margin-left: 0;
+}
+
+.social-links a {
+  display: inline-block;  
+  margin-right: .5rem;  
+}
+
+.post-date {
+  color: #666;
+}
+
+.post-content {
+  margin-top: 1.38rem;
+}
