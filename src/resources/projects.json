@@ -1,0 +1,82 @@
+[
+  {
+    "name": "packagelinker VSCode Extension",
+    "desc": "一个帮你快速找到 npm package GitHub 的 VSCode 插件",
+    "url": "https://github.com/sinchang/packagelinker"
+  },
+  {
+    "name": "vue-distpicker",
+    "desc": "Vue 省市区选择组件",
+    "url": "https://github.com/sinchang/vue-distpicker"
+  },
+  {
+    "name": "commit-stats",
+    "desc": "根据 git commit log 按年、月、日、周、作者生成统计图表",
+    "url": "https://github.com/sinchang/commit-stats"
+  },
+  {
+    "name": "GitHub Pull Request Bot",
+    "desc": "",
+    "url": "https://github.com/sinchang/github-pr-bot"
+  },
+  {
+    "name": "unu cli",
+    "desc": "短连接生成命令行工具",
+    "url": "https://github.com/sinchang/unu"
+  },
+  {
+    "name": "sharemd-cli",
+    "desc": "把本地 maekdown 快速生成在线分享链接的命令行工具",
+    "url": "https://github.com/sinchang/sharemd-cli"
+  },
+  {
+    "name": "sublog",
+    "desc": "通过 GitHub issue 生成博客的 web app",
+    "url": "https://github.com/sinchang/sublog"
+  },
+  {
+    "name": "react-github-badge",
+    "desc": "GitHub badge React 组件",
+    "url": "https://github.com/sinchang/react-github-badge"
+  },
+  {
+    "name": "vdonate",
+    "desc": "",
+    "url": "https://github.com/sinchang/vdonate"
+  },
+  {
+    "name": "pure-copyright",
+    "desc": "",
+    "url": "https://github.com/sinchang/pure-copyright"
+  },
+  {
+    "name": "node-sendcloud-sdk",
+    "desc": "",
+    "url": "https://github.com/sinchang/node-sendcloud-sdk"
+  },
+  {
+    "name": "miaopai-downloader",
+    "desc": "",
+    "url": "https://github.com/sinchang/miaopai-downloader"
+  },
+  {
+    "name": "vstar",
+    "desc": "",
+    "url": "https://github.com/sinchang/vstar"
+  },
+  {
+    "name": "vue-laypage",
+    "desc": "",
+    "url": "https://github.com/sinchang/vue-laypage"
+  },
+  {
+    "name": "douban-book-wall",
+    "desc": "",
+    "url": "https://github.com/sinchang/douban-book-wall"
+  },
+  {
+    "name": "smms Chrome Extension",
+    "desc": "",
+    "url": "https://github.com/sinchang/smms"
+  }
+]

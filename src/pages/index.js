@@ -13,13 +13,14 @@ export default ({ data }) => {
         <a href="https://github.com/sinchang">GitHub</a>
         <a href="https://twitter.com/sinchangwen">Twitter</a>
         <a href="https://t.me/sinchang">Telegram</a>
+        <a href="/projects">Projects</a>        
         <a href="/about">About</a>
       </p>
       <ul>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <li key={node.id}>
             <h4 className="post-title">
-              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+              <Link to={node.fields.slug} target="_blank">{node.frontmatter.title}</Link>
             </h4>
           </li>
         ))}
