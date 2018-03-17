@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 export default ({ data }) => {
-  console.log(data)
   return (
     <div>
       <Helmet title={`Home | ${data.site.siteMetadata.title}`} />
@@ -13,10 +12,9 @@ export default ({ data }) => {
         <a href="https://github.com/sinchang">GitHub</a>
         <a href="https://twitter.com/sinchangwen">Twitter</a>
         <a href="https://t.me/sinchang">Telegram</a>
-        <a href="/projects">Projects</a>        
-        <a href="/about">About</a>
+        {/* <a href="/about">About</a> */}
       </p>
-      <ul>
+      {/* <ul>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <li key={node.id}>
             <h4 className="post-title">
@@ -24,7 +22,7 @@ export default ({ data }) => {
             </h4>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   )
 }
