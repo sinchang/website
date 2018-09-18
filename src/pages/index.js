@@ -6,13 +6,13 @@ export default ({ data }) => {
   return (
     <div>
       <Helmet title={`Home | ${data.site.siteMetadata.title}`} />
-      <h1>sinchang</h1>
-      <p>Web Developer, live and work in Shanghai.</p>
+      <h1>Jeff Wen <span className="aka">(aka: sinchang)</span></h1>
+      <p>Web Developer, Living and working in Shanghai.</p>
       <p className="social-links">
         <a href="https://github.com/sinchang">GitHub</a>
         <a href="https://twitter.com/sinchangwen">Twitter</a>
         <a href="https://t.me/sinchang">Telegram</a>
-        {/* <a href="/about">About</a> */}
+        <a href="mailto:hi@sinchang.me">Email</a> 
       </p>
       {/* <ul>
         {data.allMarkdownRemark.edges.map(({ node }) => (
