@@ -12,7 +12,7 @@
     "gatsby": "^1.9.145",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-google-analytics": "1.0.14",
-    "gatsby-plugin-typography": "1.7.10",
+    "gatsby-plugin-typography": "1.7.19",
     "gatsby-remark-prismjs": "1.2.24",
     "gatsby-source-filesystem": "1.5.31",
     "gatsby-transformer-remark": "1.7.26",
