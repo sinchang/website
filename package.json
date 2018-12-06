@@ -19,7 +19,7 @@
     "normalize.css": "7.0.0",
     "react-helmet": "5.2.0",
     "typography": "0.16.6",
-    "typography-theme-irving": "0.15.10"
+    "typography-theme-irving": "0.16.18"
   },
   "devDependencies": {
     "eslint": "4.14.0",
