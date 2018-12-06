@@ -15,7 +15,7 @@
     "gatsby-plugin-typography": "1.7.10",
     "gatsby-remark-prismjs": "1.2.24",
     "gatsby-source-filesystem": "1.5.31",
-    "gatsby-transformer-remark": "1.7.26",
+    "gatsby-transformer-remark": "1.7.44",
     "normalize.css": "8.0.1",
     "react-helmet": "5.2.0",
     "typography": "0.16.18",
