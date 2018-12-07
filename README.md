@@ -1,4 +1,6 @@
-# gatsby-blog
+# gatsby-blog 
+
+[![Build Status](https://travis-ci.org/sinchang/website.svg?branch=master)](https://travis-ci.org/sinchang/website)
 
 ## Running in development
 `gatsby develop`
