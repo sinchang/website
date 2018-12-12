@@ -1,0 +1,30 @@
+[
+  {
+    "name": "packagelinker VSCode Extension",
+    "desc": "一个帮你快速找到 package GitHub URL 的 VSCode 插件",
+    "cover_image_url": "https://i.loli.net/2018/12/12/5c1086dc1c66c.png",
+    "website_url": "",
+    "github_url": "https://github.com/sinchang/packagelinker"
+  },
+  {
+    "name": "commit-stats",
+    "desc": "根据 git commit log 按年、月、日、周、作者生成统计图表",
+    "cover_image_url": "https://picsum.photos/800/400/?random",
+    "website_url": "",
+    "github_url": "https://github.com/sinchang/commit-stats"
+  },
+  {
+    "name": "sublog",
+    "desc": "通过 GitHub issue 生成博客的 web app",
+    "cover_image_url": "https://picsum.photos/800/400/?random",
+    "website_url": "",
+    "github_url": "https://github.com/sinchang/sublog"
+  },
+  {
+    "name": "vstar",
+    "desc": "统计 GitHub 账户 star 数量",
+    "cover_image_url": "https://picsum.photos/800/400/?random",
+    "website_url": "http://vstar.sinchang.me",
+    "github_url": "https://github.com/sinchang/vstar"
+  }
+]
