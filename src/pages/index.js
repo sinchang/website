@@ -15,16 +15,8 @@ export default ({ data }) => {
         <a href="https://twitter.com/sinchangwen">Twitter</a>
         <a href="https://t.me/sinchang">Telegram</a>
         <a href="mailto:hi@sinchang.me">Email</a>
+        <a href="/projects">Projects</a>
       </p>
-      {/* <ul>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <li key={node.id}>
-            <h4 className="post-title">
-              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-            </h4>
-          </li>
-        ))}
-      </ul> */}
     </div>
   )
 }
