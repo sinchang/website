@@ -14,7 +14,6 @@ export default ({ data }) => {
         <a href="https://github.com/sinchang">GitHub</a>
         <a href="https://twitter.com/sinchangwen">Twitter</a>
         <a href="https://t.me/sinchang">Telegram</a>
-        <a href="mailto:hi@sinchang.me">Email</a>
         <a href="/projects">Projects</a>
       </p>
     </div>
