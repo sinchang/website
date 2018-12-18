@@ -1,6 +1,27 @@
 [
   {
-    "name": "packagelinker VSCode Extension",
+    "name": "metro-passenger-flow-api",
+    "desc": "北京/上海/广州每日地铁客流量 API",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c18953c8ed80.png",
+    "website_url": "http://flows-chart.sinchang.me",
+    "github_url": "https://github.com/cnmetro/metro-passenger-flow-api"
+  },
+  {
+    "name": "cn-starbucks-stores-data",
+    "desc": "中国大陆各地区及港澳星巴克门店数量统计图表分析",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c1892772acf9.png",
+    "website_url": "https://cn-starbucks.netlify.com/",
+    "github_url": "https://github.com/sinchang/cn-starbucks-stores-data"
+  },
+  {
+    "name": "starred",
+    "desc": "随机展示一个你曾经 star 过的 GitHub 项目到你的 feed 页面",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c1893f6a635e.png",
+    "website_url": "",
+    "github_url": "https://github.com/sinchang/starred"
+  },
+  {
+    "name": "packagelinker",
     "desc": "一个帮你快速找到 package GitHub URL 的 VSCode 插件",
     "cover_image_url": "https://i.loli.net/2018/12/12/5c1086dc1c66c.png",
     "website_url": "",
@@ -9,22 +30,29 @@
   {
     "name": "commit-stats",
     "desc": "根据 git commit log 按年、月、日、周、作者生成统计图表",
-    "cover_image_url": "https://picsum.photos/800/400/?random",
-    "website_url": "",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c18919308a69.png",
+    "website_url": "https://sinchang.github.io/commit-stats/commit-stats.html",
     "github_url": "https://github.com/sinchang/commit-stats"
   },
   {
     "name": "sublog",
     "desc": "通过 GitHub issue 生成博客的 web app",
-    "cover_image_url": "https://picsum.photos/800/400/?random",
-    "website_url": "",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c189137ae601.png",
+    "website_url": "http://sublog.sinchang.me/",
     "github_url": "https://github.com/sinchang/sublog"
   },
   {
     "name": "vstar",
     "desc": "统计 GitHub 账户 star 数量",
-    "cover_image_url": "https://picsum.photos/800/400/?random",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c1890c5d9fdf.png",
     "website_url": "http://vstar.sinchang.me",
     "github_url": "https://github.com/sinchang/vstar"
+  },
+  {
+    "name": "doba",
+    "desc": "使用 Vue.js 开发豆瓣电影站点",
+    "cover_image_url": "https://i.loli.net/2018/12/18/5c1894b12a0c4.png",
+    "website_url": "http://doba.sinchang.me",
+    "github_url": "https://github.com/sinchang/doba"
   }
 ]
