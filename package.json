@@ -14,7 +14,7 @@
     "gatsby-plugin-google-analytics": "1.0.31",
     "gatsby-plugin-typography": "1.7.19",
     "gatsby-remark-prismjs": "1.2.24",
-    "gatsby-source-filesystem": "1.5.31",
+    "gatsby-source-filesystem": "2.0.16",
     "gatsby-transformer-remark": "1.7.44",
     "normalize.css": "8.0.1",
     "react-helmet": "5.2.0",
