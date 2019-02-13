@@ -9,7 +9,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'"
   },
   "dependencies": {
-    "gatsby": "^1.9.145",
+    "gatsby": "^2.0.119",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-google-analytics": "2.0.13",
     "gatsby-plugin-typography": "1.7.19",
