@@ -11,7 +11,7 @@
   "dependencies": {
     "gatsby": "^1.9.145",
     "gatsby-link": "^1.6.32",
-    "gatsby-plugin-google-analytics": "2.0.9",
+    "gatsby-plugin-google-analytics": "2.0.13",
     "gatsby-plugin-typography": "1.7.19",
     "gatsby-remark-prismjs": "1.2.24",
     "gatsby-source-filesystem": "2.0.16",
