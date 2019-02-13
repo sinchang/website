@@ -9,22 +9,22 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'"
   },
   "dependencies": {
-    "gatsby": "^2.0.119",
-    "gatsby-link": "^2.0.10",
-    "gatsby-plugin-google-analytics": "2.0.13",
-    "gatsby-plugin-typography": "^2.2.7",
-    "gatsby-remark-prismjs": "^3.2.4",
-    "gatsby-source-filesystem": "2.0.20",
-    "gatsby-transformer-remark": "^2.2.5",
-    "normalize.css": "^8.0.1",
-    "react-helmet": "^5.2.0",
-    "typography": "^0.16.18",
-    "typography-theme-irving": "^0.16.18"
+    "gatsby": "^1.9.145",
+    "gatsby-link": "^1.6.32",
+    "gatsby-plugin-google-analytics": "2.0.9",
+    "gatsby-plugin-typography": "1.7.19",
+    "gatsby-remark-prismjs": "1.2.24",
+    "gatsby-source-filesystem": "1.5.31",
+    "gatsby-transformer-remark": "1.7.44",
+    "normalize.css": "8.0.1",
+    "react-helmet": "5.2.0",
+    "typography": "0.16.18",
+    "typography-theme-irving": "0.16.18"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "5.13.0",
-    "eslint-plugin-react": "7.12.4",
-    "prettier": "1.16.4"
+    "eslint": "5.12.0",
+    "eslint-plugin-react": "7.12.3",
+    "prettier": "1.15.3"
   }
 }
