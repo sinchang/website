@@ -8,7 +8,7 @@ export default ({ data }) => {
   return (
     <div>
       <Helmet title={`Home | ${data.site.siteMetadata.title}`} />
-      <h1>
+      <h1 className="name">
         Jeff Wen <span className="aka">(aka: sinchang)</span>
       </h1>
       <p>Web Developer, Living and working in Shanghai.</p>
