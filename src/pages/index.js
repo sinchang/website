@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
+import Social from '../components/social'
+
 export default ({ data }) => {
   return (
     <div>
@@ -10,12 +12,9 @@ export default ({ data }) => {
         Jeff Wen <span className="aka">(aka: sinchang)</span>
       </h1>
       <p>Web Developer, Living and working in Shanghai.</p>
-      <p className="social-links">
-        <a href="https://github.com/sinchang">GitHub</a>
-        <a href="https://twitter.com/sinchangwen">Twitter</a>
-        <a href="https://t.me/sinchang">Telegram</a>
-        <a href="/projects">Projects</a>
-      </p>
+      <div className="social-links">
+        <Social />
+      </div>
     </div>
   )
 }
