@@ -16,8 +16,8 @@ library.add(
 )
 
 export default () => {
-	return (
-		<div>
+  return (
+    <div>
       <a href="https://github.com/sinchang">
         <FontAwesomeIcon icon={faGithub} />
       </a>
@@ -31,8 +31,8 @@ export default () => {
         <FontAwesomeIcon icon={faEnvelope} />
       </a>
       <a href="/projects" alt="projects">
-        <FontAwesomeIcon icon={faCode}/>
+        <FontAwesomeIcon icon={faCode} />
       </a>
     </div>
-	)
+  )
 }
