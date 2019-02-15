@@ -13,6 +13,18 @@
     "github_url": "https://github.com/cnmetro/metro-passenger-flow-api"
   },
   {
+    "name": "amap-web-api-sdk",
+    "desc": "高德地图 Web API SDK",
+    "cover_image_url": "https://i.loli.net/2019/02/15/5c66392fa89eb.jpg",
+    "github_url": "https://github.com/sinchang/amap-web-api-sdk"
+  },
+  {
+    "name": "rssbot",
+    "desc": "Telegram Bot，订阅 RSS，推送最新内容",
+    "cover_image_url": "https://i.loli.net/2019/02/15/5c66383da494b.jpg",
+    "github_url": "https://github.com/sinchang/rssbot"
+  },
+  {
     "name": "cn-starbucks-stores-data",
     "desc": "中国大陆各地区及港澳星巴克门店数量统计图表分析",
     "cover_image_url": "https://i.loli.net/2018/12/18/5c1892772acf9.png",

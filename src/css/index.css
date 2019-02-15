@@ -1,4 +1,11 @@
+body {
+  background-color: #2b303b;
+  color: #dfe1e8;
+  font-size: 1.2rem;
+}
+
 a {
+  color: #8fa1b3;
   text-decoration: none;
 }
 
@@ -19,19 +26,21 @@ a {
   margin-top: 1.38rem;
 }
 
+.name {
+  font-size: 1.6rem;
+}
+
 .aka {
   font-size: 1rem;
 }
 
 .card {
   padding: 0.8rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 1.69rem;
 }
 
 .card-link {
   font-size: 0.8rem;
-  color: #3498db;
 }
 
 .card-link:nth-of-type(1) {
