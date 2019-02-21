@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
   faTwitter,
-  faTelegram
+  faTelegram,
+  faInstagram
 } from '@fortawesome/free-brands-svg-icons'
 import { faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,6 +13,7 @@ library.add(
   faGithub,
   faTwitter,
   faTelegram,
+  faInstagram,
   faCode
 )
 
@@ -26,6 +28,9 @@ export default () => {
       </a>
       <a href="https://t.me/sinchang">
         <FontAwesomeIcon icon={faTelegram} />
+      </a>
+      <a href="https://instagram.com/sinchangwen">
+        <FontAwesomeIcon icon={faInstagram} />
       </a>
       <a href="mailto:hi@sinchang.me">
         <FontAwesomeIcon icon={faEnvelope} />

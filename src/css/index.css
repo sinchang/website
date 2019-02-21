@@ -1,10 +1,13 @@
 body {
   background-color: #2b303b;
-  color: #dfe1e8;
   font-size: 1.2rem;
 }
 
-a {
+.container {
+  color: #dfe1e8;
+}
+
+.container a {
   color: #8fa1b3;
   text-decoration: none;
 }

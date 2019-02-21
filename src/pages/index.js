@@ -1,12 +1,13 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import Social from '../components/social'
+import Layout from '../layouts/index'
 
 export default ({ data }) => {
   return (
-    <div>
+    <Layout>
       <Helmet title={`Home | ${data.site.siteMetadata.title}`} />
       <h1 className="name">
         Jeff Wen <span className="aka">(aka: sinchang)</span>
@@ -15,7 +16,7 @@ export default ({ data }) => {
       <div className="social-links">
         <Social />
       </div>
-    </div>
+    </Layout>
   )
 }
 
