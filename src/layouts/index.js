@@ -1,10 +1,24 @@
-import React from 'react'
-import 'normalize.css'
-import '../css/index.css'
-import 'prismjs/themes/prism-solarizedlight.css'
+import React from "react"
 
-export default ({ children }) => (
-  <div style={{ margin: `0 auto`, maxWidth: 768, padding: `2rem 1rem` }}>
-    {children()}
-  </div>
-)
+import { rhythm, scale } from "../utils/typography"
+
+class Layout extends React.Component {
+  render() {
+    const { children } = this.props
+    return (
+      <div
+        className="container"
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(24),
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        }}
+      >
+        <main>{children}</main>
+      </div>
+    )
+  }
+}
+
+export default Layout
