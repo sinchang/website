@@ -30,3 +30,7 @@
 .movie-item .dv-star-rating {
   margin-top: 20px;
 }
+
+.loading {
+  margin: 100px auto;
+}

@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import StarRatingComponent from 'react-star-rating-component'
 import axios from 'axios'
+import ReactLoading from 'react-loading';
 
 import Layout from '../layouts/index'
 
@@ -10,14 +11,21 @@ class Movie extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      movie: []
+      movie: [],
+      loading: true
     }
   }
 
   fetchData() {
     axios(`https://api.sinchang.me/douban/sinchangwen/movie/collect`)
       .then(res => {
-        this.setState({ movie: res.data })
+        this.setState({
+          movie: res.data,
+          loading: false
+        })
+      })
+      .catch(() => {
+        this.setState({ loading: false })
       })
   }
 
@@ -36,8 +44,8 @@ class Movie extends React.Component {
           <a href={item.url}>
             <img src={item.poster}></img>
           </a>
-          <StarRatingComponent 
-            name={item.title} 
+          <StarRatingComponent
+            name={item.title}
             starCount={5}
             value={Number(item.rate)}
           />
@@ -53,8 +61,9 @@ class Movie extends React.Component {
           <meta name="referrer" content="never" />
         </Helmet>
         <ul className="movie-container">
-          { list }
+          {list}
         </ul>
+        {this.state.loading && <ReactLoading type="bars" color="#fff" height={50} width={50} className="loading" />}
       </div>
     )
   }
