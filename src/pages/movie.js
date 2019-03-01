@@ -47,15 +47,15 @@ class Movie extends React.Component {
     })
 
     return (
-      <Layout>
-      <Helmet>
-        <title>{`Watched Movie | ${data.site.siteMetadata.title}`}</title>
-        <meta name="referrer" content="never" />
-      </Helmet>
-      <ul className="movie-container">
-        { list }
-      </ul>
-      </Layout>
+      <div>
+        <Helmet>
+          <title>{`Watched Movie | ${data.site.siteMetadata.title}`}</title>
+          <meta name="referrer" content="never" />
+        </Helmet>
+        <ul className="movie-container">
+          { list }
+        </ul>
+      </div>
     )
   }
 }
