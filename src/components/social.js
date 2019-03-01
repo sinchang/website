@@ -7,14 +7,16 @@ import {
   faTelegram,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
-import { faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faCode, faEnvelope, faFilm } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faGithub,
   faTwitter,
   faTelegram,
   faInstagram,
-  faCode
+  faCode,
+  faEnvelope,
+  faFilm
 )
 
 export default () => {
@@ -31,6 +33,9 @@ export default () => {
       </a>
       <a href="https://instagram.com/sinchangwen">
         <FontAwesomeIcon icon={faInstagram} />
+      </a>
+      <a href="/movie">
+        <FontAwesomeIcon icon={faFilm} />
       </a>
       <a href="mailto:hi@sinchang.me">
         <FontAwesomeIcon icon={faEnvelope} />

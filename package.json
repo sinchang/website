@@ -24,6 +24,7 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
+    "react-star-rating-component": "^1.4.1",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
     "typography-theme-irving": "^0.16.18"
