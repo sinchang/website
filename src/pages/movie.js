@@ -1,8 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Layout from '../layouts/index'
 import StarRatingComponent from 'react-star-rating-component'
+import axios from 'axios'
+
+import Layout from '../layouts/index'
 
 class Movie extends React.Component {
   constructor(props) {
@@ -13,12 +15,9 @@ class Movie extends React.Component {
   }
 
   fetchData() {
-    fetch(`http://api.sinchang.me/douban/sinchangwen/movie/collect`)
-      .then(response => {
-        return response.json()
-      })
-      .then(movie => {
-        this.setState({ movie })
+    axios(`http://api.sinchang.me/douban/sinchangwen/movie/collect`)
+      .then(res => {
+        this.setState({ movie: res.data })
       })
   }
 
