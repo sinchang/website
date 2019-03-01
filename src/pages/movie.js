@@ -15,7 +15,7 @@ class Movie extends React.Component {
   }
 
   fetchData() {
-    axios(`http://api.sinchang.me/douban/sinchangwen/movie/collect`)
+    axios(`https://api.sinchang.me/douban/sinchangwen/movie/collect`)
       .then(res => {
         this.setState({ movie: res.data })
       })
