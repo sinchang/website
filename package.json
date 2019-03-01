@@ -13,7 +13,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "add": "^2.0.6",
     "axios": "^0.18.0",
     "gatsby": "^2.1.13",
     "gatsby-plugin-google-analytics": "^2.0.14",
@@ -30,8 +29,7 @@
     "react-star-rating-component": "^1.4.1",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
-    "typography-theme-irving": "^0.16.18",
-    "yarn": "^1.13.0"
+    "typography-theme-irving": "^0.16.18"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
