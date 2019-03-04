@@ -5,7 +5,8 @@ import {
   faGithub,
   faTwitter,
   faTelegram,
-  faInstagram
+  faInstagram,
+  faSpotify
 } from '@fortawesome/free-brands-svg-icons'
 import { faCode, faEnvelope, faFilm } from '@fortawesome/free-solid-svg-icons'
 
@@ -16,7 +17,8 @@ library.add(
   faInstagram,
   faCode,
   faEnvelope,
-  faFilm
+  faFilm,
+  faSpotify
 )
 
 export default () => {
@@ -25,7 +27,7 @@ export default () => {
       <a href="https://github.com/sinchang">
         <FontAwesomeIcon icon={faGithub} />
       </a>
-      <a href="https://twitter.com/sinchangwen">
+      <a href="https://mobile.twitter.com/sinchangwen">
         <FontAwesomeIcon icon={faTwitter} />
       </a>
       <a href="https://t.me/sinchang">
@@ -33,6 +35,9 @@ export default () => {
       </a>
       <a href="https://instagram.com/sinchangwen">
         <FontAwesomeIcon icon={faInstagram} />
+      </a>
+      <a href="https://open.spotify.com/user/sinchang">
+        <FontAwesomeIcon icon={faSpotify} />
       </a>
       <a href="/movie">
         <FontAwesomeIcon icon={faFilm} />
