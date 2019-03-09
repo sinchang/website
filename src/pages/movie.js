@@ -5,13 +5,11 @@ import StarRatingComponent from 'react-star-rating-component'
 import axios from 'axios'
 import ReactLoading from 'react-loading';
 
-import Layout from '../layouts/index'
-
 class Movie extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      movie: [],
+      movies: [],
       loading: true
     }
   }
@@ -20,7 +18,7 @@ class Movie extends React.Component {
     axios(`https://api.sinchang.me/douban/sinchangwen/movie/collect`)
       .then(res => {
         this.setState({
-          movie: res.data,
+          movies: res.data.movies,
           loading: false
         })
       })
@@ -35,7 +33,7 @@ class Movie extends React.Component {
 
   render() {
     const { data } = this.props
-    const list = this.state.movie.map((item, index) => {
+    const list = this.state.movies.map((item, index) => {
       const divStyle = {
         backgroundImage: 'url(' + item.poster + ')',
       }
@@ -57,7 +55,7 @@ class Movie extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>{`Watched Movie | ${data.site.siteMetadata.title}`}</title>
+          <title>{`Watched Movies | ${data.site.siteMetadata.title}`}</title>
           <meta name="referrer" content="never" />
         </Helmet>
         <ul className="movie-container">
