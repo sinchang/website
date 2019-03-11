@@ -28,7 +28,7 @@
     "react-loading": "^2.0.3",
     "react-star-rating-component": "^1.4.1",
     "react-typography": "^0.16.18",
-    "typography": "^0.16.18",
+    "typography": "^0.16.19",
     "typography-theme-irving": "^0.16.18"
   },
   "devDependencies": {
