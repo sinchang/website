@@ -29,7 +29,7 @@
     "react-star-rating-component": "^1.4.1",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
-    "typography-theme-irving": "^0.16.18"
+    "typography-theme-irving": "^0.16.19"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
