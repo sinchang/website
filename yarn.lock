@@ -4241,10 +4241,10 @@ gatsby-plugin-page-creator@^2.0.8:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-typography@^2.2.7:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.2.7.tgz#164869018c28da8cde70f3c451365e2c0643608f"
-  integrity sha512-ORUFM4QXBslsn0KG+e5mvhFQLdU1Txp3uPt8srFtitovuCzewg1NztdLaMnZgwpGTfrAMl98d4uaPAppiOjp6g==
+gatsby-plugin-typography@^2.2.9:
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.2.9.tgz#e76e20606c57ea41d995162312de86547e4c9857"
+  integrity sha512-UBMQHJT1rPoihoMxRTNHF30JzuAznfe8AJP3mGZ3DwsgkUfcceIlDe3ckPSND03A3vQoXDXwzoLCKQnrHNSoyQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -10367,11 +10367,6 @@ yargs@^9.0.0:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^7.0.0"
-
-yarn@^1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.13.0.tgz#affa9c956739548024068532a902cf18c9cb523f"
-  integrity sha512-Unfw2eefv8imt4ZMPhvFVP44WCz38huDxkHs+Yqrx4wBTK75Tr0mh3V4rh+2Nw5iQq0rcM/VafotCZo9qTb5DA==
 
 yeast@0.1.2:
   version "0.1.2"
