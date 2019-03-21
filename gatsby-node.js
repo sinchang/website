@@ -23,6 +23,9 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+              },
+              frontmatter {
+                template
               }
             }
           }
@@ -31,9 +34,10 @@ exports.createPages = ({ graphql, actions }) => {
     `
     ).then(result => {
       result.data.allMarkdownRemark.edges.map(({ node }) => {
+        const isMdTemplate = node.frontmatter.template === 'markdown'
         createPage({
           path: node.fields.slug,
-          component: path.resolve(`./src/templates/post.js`),
+          component: path.resolve(`./src/templates/${isMdTemplate ? 'markdown' : 'post'}.js`),
           context: {
             slug: node.fields.slug,
           },
