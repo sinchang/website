@@ -14,7 +14,7 @@ template: markdown
 - [DB Browser for SQLite](https://sqlitebrowser.org/)
 - [CotEditor: The Plain-Text Editor for macOS](https://coteditor.com/)
 - [Whistle: HTTP, HTTPS, WebSocket debugging proxy](https://github.com/avwo/whistle)
-- [Medis: is a beautiful, easy-to-use Mac database management application for Redis](https://github.com/luin/medis)
+- [Medis: Redis database management for macOS](https://github.com/luin/medis)
 - [Sequel Pro: MySQL/MariaDB database management for macOS](https://www.sequelpro.com/)
 
 ### Software
