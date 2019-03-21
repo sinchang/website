@@ -1,5 +1,4 @@
 body {
-  background-color: #2b303b;
   font-size: 1.2rem;
 }
 
@@ -13,22 +12,13 @@ img {
   vertical-align: middle;
 }
 
-li {
-  list-style: none;
-}
-
 .container {
-  color: #dfe1e8;
   font-size: 1.2rem;
 }
 
-.container {
-  color: #dfe1e8;
-}
-
 .container a {
-  color: #8fa1b3;
   text-decoration: none;
+  color: #3498db;
 }
 
 .social-links {
@@ -38,6 +28,7 @@ li {
 .social-links a {
   display: inline-block;
   margin-right: 0.5rem;
+  color: #333;
 }
 
 .post-date {
