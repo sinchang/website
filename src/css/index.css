@@ -68,3 +68,7 @@ img {
 .card-img-top {
   margin-bottom: 0.69rem;
 }
+
+.md-content {
+  font-size: .8rem;
+}
