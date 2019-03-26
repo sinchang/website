@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'sinchang',
-    desc: ''
+    desc: `The personal website of sinchang`
   },
   plugins: [
     {
@@ -41,6 +41,29 @@ module.exports = {
               // If you're unsure, it's best to use the default value.
               classPrefix: "language-",
             },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The personal website of sinchang`,
+        short_name: `sinchang`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icons: [
+          {
+            src: `/favicons/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/favicons/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
           },
         ],
       },
