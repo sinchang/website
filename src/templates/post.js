@@ -2,10 +2,12 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
+import Layout from '../layouts/index'
+
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
-    <div>
+    <Layout>
       <Helmet
         title={`${post.frontmatter.title} | ${data.site.siteMetadata.title}`}
       />
@@ -15,7 +17,7 @@ export default ({ data }) => {
         className="post-content"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
-    </div>
+    </Layout>
   )
 }
 

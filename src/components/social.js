@@ -39,14 +39,8 @@ export default () => {
       <a href="https://open.spotify.com/user/sinchang">
         <FontAwesomeIcon icon={faSpotify} />
       </a>
-      <a href="/movie">
-        <FontAwesomeIcon icon={faFilm} />
-      </a>
       <a href="mailto:hi@sinchang.me">
         <FontAwesomeIcon icon={faEnvelope} />
-      </a>
-      <a href="/projects" alt="projects">
-        <FontAwesomeIcon icon={faCode} />
       </a>
     </div>
   )
