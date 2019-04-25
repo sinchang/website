@@ -16,6 +16,11 @@ export default ({ data }) => {
       <div className="social-links">
         <Social />
       </div>
+      <ul className="menu">
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/uses">Uses</a></li>
+      </ul>
     </Layout>
   )
 }
@@ -25,24 +30,6 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } } }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-          }
-        }
       }
     }
   }
