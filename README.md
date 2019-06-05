@@ -1,15 +1,3 @@
-# my-site
+# website
 
-## Scripts
-
-### `yarn run dev`
-
-Run the website locally.
-
-### `yarn run build`
-
-Create a production build of the website, the generated files can be found at `./public` folder, you can [deploy it as a static website](https://saber.land/docs/deployment.html).
-
----
-
-Created by [Create Portfolio](https://github.com/saberland/create-portfolio)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d6f2f60e-581b-45e5-8b40-721e438a652b/deploy-status)](https://app.netlify.com/sites/public-relations-officer-car-87127/deploys)
