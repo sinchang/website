@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "saber": "^0.6.4",
-    "saber-theme-portfolio": "latest",
-    "saber-plugin-query-posts": "^0.3.1"
+    "saber-plugin-google-analytics": "^0.0.6",
+    "saber-plugin-query-posts": "^0.3.1",
+    "saber-theme-portfolio": "latest"
   }
 }

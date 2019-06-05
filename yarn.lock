@@ -4353,6 +4353,11 @@ saber-markdown@^0.0.7:
   resolved "https://registry.yarnpkg.com/saber-markdown/-/saber-markdown-0.0.7.tgz#282fe2429e1d34d2ffbff547b7830f8f27d50d07"
   integrity sha512-tW7iTaZCD3GYxcw8so9H+1ObxKHaE1iRaf/gq/y0Ddz6xd7x65fgsJvEe4RpkYFBhUiJAkdvfNAZiwDaa9Ft2Q==
 
+saber-plugin-google-analytics@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/saber-plugin-google-analytics/-/saber-plugin-google-analytics-0.0.6.tgz#86e8cd8ab7227c74196f17bac487e36d48c4f0a3"
+  integrity sha512-ccTsMBp7oSKv5t9BE1vt5WlLs+DWtC9P4BOPosDLMjp0VKO/AroOrJ3clnib3rwJ+Fw/icOllNKDK0m4zDPJOg==
+
 saber-plugin-prismjs@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/saber-plugin-prismjs/-/saber-plugin-prismjs-0.2.1.tgz#678cbe3611d331a89429270a9639287941c0a1cf"

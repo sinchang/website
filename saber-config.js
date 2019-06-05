@@ -48,6 +48,11 @@ module.exports = {
   plugins: [
     {
       resolve: 'saber-plugin-query-posts'
+    }, {
+      resolve: 'saber-plugin-google-analytics',
+      options: {
+        trackId: 'UA-41610509-10'
+      }
     }
   ]
 }
