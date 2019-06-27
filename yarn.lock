@@ -4374,9 +4374,9 @@ saber-plugin-query-posts@^0.3.1:
     url-join "^4.0.0"
 
 saber-theme-portfolio@latest:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/saber-theme-portfolio/-/saber-theme-portfolio-0.1.11.tgz#99d7f2967e220caac2c056dfc141723ddbec81bc"
-  integrity sha512-+qQA2qUV+o2JSpGW6InRzv2RkE42Gm4GpcAau918z7ONGIiffHOe0bL6isAOzUqRnZN+Z4cOBdJ0X9mahqVzOQ==
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/saber-theme-portfolio/-/saber-theme-portfolio-0.2.0.tgz#1667b38e21521c0975d19d977192ac7ada6c1ea9"
+  integrity sha512-sNbPatrunt5HVb64S3qKWL/sBjlOex+VJjdzDarlDppHhkTOBuu29ggpe/zFv55WFm1fBzdVRkiu0kO4Pwgu0w==
   dependencies:
     axios "^0.19.0"
     grid.css "^0.6.1"
