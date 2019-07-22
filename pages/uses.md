@@ -27,6 +27,7 @@ layout: page
 - [AirPods 2](https://www.apple.com/airpods/)
 - [iPhone XR](https://www.apple.com/iphone-xr/)
 - [Dell 24 Ultra HD 4K Monitor P2415Q](https://www.dell.com/en-us/work/shop/dell-24-ultra-hd-4k-monitor-p2415q/apd/210-agnk/monitors-monitor-accessories)
-- [Samsung Monitor LS24D360HL](https://www.samsung.com/us/computer/monitors/LS24D360HL/ZA-specs)
-- MacBook Air 2015
-- MacBook Pro 2014
+- ~~[Samsung Monitor LS24D360HL](https://www.samsung.com/us/computer/monitors/LS24D360HL/ZA-specs)~~
+- MacBook Air (13-inch, 2015) - Home
+- ~~MacBook Pro 2014~~
+- MacBook Pro (15-inch, 2018) - Office
