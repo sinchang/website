@@ -4374,9 +4374,9 @@ saber-plugin-query-posts@^0.3.1:
     url-join "^4.0.0"
 
 saber-theme-portfolio@latest:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/saber-theme-portfolio/-/saber-theme-portfolio-0.2.0.tgz#1667b38e21521c0975d19d977192ac7ada6c1ea9"
-  integrity sha512-sNbPatrunt5HVb64S3qKWL/sBjlOex+VJjdzDarlDppHhkTOBuu29ggpe/zFv55WFm1fBzdVRkiu0kO4Pwgu0w==
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/saber-theme-portfolio/-/saber-theme-portfolio-0.2.1.tgz#155974f76a81dcec8ff075169b4778f707f76b7c"
+  integrity sha512-oiL0O3WyjMn48rTQZatUNBl8nuONf02Vo+8lY5qTmsgrprcGFi6tD1cUPWTApyvw+9exTf/furGGvbJUGh56ww==
   dependencies:
     axios "^0.19.0"
     grid.css "^0.6.1"
@@ -4386,7 +4386,7 @@ saber-theme-portfolio@latest:
     saber-highlight-css "^0.0.5"
     saber-plugin-prismjs "^0.2.0"
     typeface-source-sans-pro "^0.0.54"
-    vue-feather-icons "^4.21.0"
+    vue-feather-icons "^5.0.0"
 
 saber-utils@^0.1.5:
   version "0.1.5"
@@ -5185,10 +5185,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-feather-icons@^4.21.0:
-  version "4.21.0"
-  resolved "https://registry.yarnpkg.com/vue-feather-icons/-/vue-feather-icons-4.21.0.tgz#062ab7f6a33c4c4c5c9c94d5be307ebac5ef5ef2"
-  integrity sha512-PEpJunYaGljd/m0n19zLwUWXxhcVXUEM/ldbhMf9cL8lV5GQIhoeWbsLip4W9u4m8nEDQzuE757T7xEwKg0p3A==
+vue-feather-icons@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vue-feather-icons/-/vue-feather-icons-5.0.0.tgz#f804304907d648667b879525b094bab1f7413140"
+  integrity sha512-uvi2l3i0aeRRzG3vX24/AH+8BkcXkSJboAv8XkUZ6aPkEC9n6LXDcKp5/ho+3moVQ9wlga3N6BjL89pmkHBzPw==
   dependencies:
     babel-helper-vue-jsx-merge-props "^2.0.2"
 
