@@ -30,4 +30,4 @@ layout: page
 - ~~[Samsung Monitor LS24D360HL](https://www.samsung.com/us/computer/monitors/LS24D360HL/ZA-specs)~~
 - MacBook Air (13-inch, 2015) - Home
 - ~~MacBook Pro 2014~~
-- MacBook Pro (15-inch, 2018) - Office
+- MacBook Pro (15-inch, 2019) - Office
