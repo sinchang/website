@@ -9,7 +9,7 @@
   "devDependencies": {
     "saber": "^0.9.1",
     "saber-plugin-google-analytics": "^0.2.1",
-    "saber-plugin-query-posts": "^0.4.4",
+    "saber-plugin-query-posts": "^0.4.5",
     "saber-theme-portfolio": "0.2.2"
   }
 }
