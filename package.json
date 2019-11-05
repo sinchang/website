@@ -7,7 +7,7 @@
     "build": "saber build"
   },
   "devDependencies": {
-    "saber": "^0.11.1",
+    "saber": "^0.11.2",
     "saber-plugin-google-analytics": "^0.2.1",
     "saber-plugin-query-posts": "^0.4.5",
     "saber-theme-portfolio": "0.2.2"
