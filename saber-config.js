@@ -24,20 +24,6 @@ module.exports = {
         link: '/uses'
       }
     ],
-    skills: [
-      {
-        topic: 'vue',
-        description: `ElementUI Contributor`,
-      },
-      {
-        topic: 'nodejs',
-        description: `CNode Contributor`,
-      },
-      {
-        topic: 'react',
-        description: `Use React in my side projects`,
-      }
-    ]
   },
 
   permalinks: {
