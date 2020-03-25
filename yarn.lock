@@ -4972,10 +4972,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-saber-highlight-css@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/saber-highlight-css/-/saber-highlight-css-0.0.5.tgz#ec0d1c032a47a05a63a89cbcc7548c735d2058f5"
-  integrity sha512-Gf9+HFd1OvLTTfxbLkx72ttd3UlGLolnLGpPGo6VUXxSvfMNicc5sCw+HFCXyLoA0Lq/VGBi6Sh47/kT2vn2hg==
+saber-highlight-css@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/saber-highlight-css/-/saber-highlight-css-0.1.1.tgz#fbb45ef69066599a4bb846b4f2311105dcf77be8"
+  integrity sha512-VgpcZef+1v6Pi4NORoEoWPysVelRqgxAm72voA/JQ9zPl4wf/bhYoIGgcn2gLe+vu/GMrUmbQwsXtu6PfbL/Ew==
 
 saber-highlighter-prism@^0.3.3:
   version "0.3.3"
@@ -5014,19 +5014,19 @@ saber-plugin-query-posts@^0.4.5:
     slugo "^0.3.1"
     url-join "^4.0.0"
 
-saber-theme-portfolio@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/saber-theme-portfolio/-/saber-theme-portfolio-0.2.2.tgz#644e8548888dad6bebc4dd3191237bbce4472c06"
-  integrity sha512-yojQMNap0c8I+zQdghCUSVQ8qnceohKcumz6bCcBHf1OrFG1FWscAlANRl+XaThskwhTSujDTKcYoftg9zsPHg==
+saber-theme-portfolio@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/saber-theme-portfolio/-/saber-theme-portfolio-0.3.0.tgz#f250ef9e31db3160bdc578aa612c82ec9a1d83d6"
+  integrity sha512-zqEt88kXnCNK4TGbD6Lt4Y/PgkhD0DQ2X+M7D9JDHO3/gD89wCfnE034o1RTcbt69lp8UHgjN0InMg7M44eBnw==
   dependencies:
     axios "^0.19.0"
     grid.css "^0.6.1"
     jump.js "^1.0.2"
     normalize.css "^8.0.1"
     prismjs "^1.16.0"
-    saber-highlight-css "^0.0.5"
+    saber-highlight-css "^0.1.1"
     saber-plugin-prismjs "^0.2.0"
-    typeface-source-sans-pro "^0.0.54"
+    typeface-source-sans-pro "^0.0.75"
     vue-feather-icons "^5.0.0"
 
 saber-utils@^0.2.4:
@@ -5760,10 +5760,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-source-sans-pro@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-source-sans-pro/-/typeface-source-sans-pro-0.0.54.tgz#a570edf565d338b622487ec1ebe2389eb1eed62f"
-  integrity sha512-4nsvldyZsOBuvR4oEuUMTquJFVssP4iIVnMEIU4paCWo2940b6r/t95sk7KwDpCablS8DprM/YlhpgqnS7gpKg==
+typeface-source-sans-pro@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-source-sans-pro/-/typeface-source-sans-pro-0.0.75.tgz#33e60ea079738c2dbdb2d0aa28f899f565e1646e"
+  integrity sha512-8aI6ywe+5py1MoMQjdnuQKepOATSLpFoyatVMweF6JNUD8cu+sWaVEfZBN08CRxPrSC4KYTArf6prrQzcqpyQA==
 
 unbzip2-stream@^1.0.9:
   version "1.3.3"
