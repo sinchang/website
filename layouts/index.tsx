@@ -2,7 +2,7 @@ import React from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { parseISO, format } from 'date-fns';
-import { Container, Text, Box, Link, Divider, Badge, Tooltip } from '@peduarte/wallop-system';
+import { Container, Text, Box, Link, Divider, Badge, Tooltip } from '@modulz/radix';
 import { FrontMatter } from '../types';
 import TitleAndMetaTags from '../components/TitleAndMetaTags';
 

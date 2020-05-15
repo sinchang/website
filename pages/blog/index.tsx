@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Container, Box, Text, Link } from '@peduarte/wallop-system';
+import { Container, Box, Text, Link } from '@modulz/radix';
 import { blogPosts } from '../../utils/blogPosts';
 import { FrontMatter } from '../../types';
 import TitleAndMetaTags from '../../components/TitleAndMetaTags';

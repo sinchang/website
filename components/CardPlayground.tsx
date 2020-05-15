@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box, Input, Button, Image, Text, Code, AspectRatio } from '@peduarte/wallop-system';
+import { Flex, Box, Input, Button, Image, Text, Code, AspectRatio } from '@modulz/radix';
 
 export function CardPlayground(props) {
   const headingRef = React.useRef<HTMLInputElement>(null);

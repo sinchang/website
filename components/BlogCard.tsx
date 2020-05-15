@@ -1,7 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { parseISO, format } from 'date-fns';
-import { Link, Text, Box, Badge, Tooltip } from '@peduarte/wallop-system';
+import { Link, Text, Box, Badge, Tooltip } from '@modulz/radix';
 import { FrontMatter } from '../types';
 
 export const BlogCard = ({ frontMatter }: { frontMatter: FrontMatter }) => {
@@ -20,7 +20,7 @@ export const BlogCard = ({ frontMatter }: { frontMatter: FrontMatter }) => {
             {frontMatter.title}{' '}
             {frontMatter.draft && (
               <Tooltip label="This article is work in progress" side="top" align="center">
-                <Badge variant="white" ml={1} mt="-1px">
+                <Badge variant="gray" ml={1} mt="-1px">
                   Draft
                 </Badge>
               </Tooltip>

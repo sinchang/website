@@ -11,8 +11,8 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
     "@mdx-js/loader": "^1.5.7",
+    "@modulz/radix": "^0.0.1-beta.41",
     "@next/mdx": "^9.3.1",
-    "@peduarte/wallop-system": "^0.22.0",
     "babel-plugin-import-glob-array": "^0.2.0",
     "date-fns": "^2.11.0",
     "imagemin-mozjpeg": "^8.0.0",

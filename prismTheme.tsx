@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { theme } from '@peduarte/wallop-system';
+import { theme } from '@modulz/radix';
 
 export const prismTheme = css`
   code[class*='language-'],
@@ -28,7 +28,7 @@ export const prismTheme = css`
 
   .token.punctuation {
     /* color: #999; */
-		color: ${theme.colors.gray};
+		color: ${theme.colors.gray100};
 
   }
 
@@ -44,7 +44,7 @@ export const prismTheme = css`
   .token.symbol,
   .token.deleted {
     /* color: #905; */
-		/* color: ${theme.colors.gray}; */
+		/* color: ${theme.colors.gray100}; */
   }
 
   .token.selector,
@@ -54,7 +54,7 @@ export const prismTheme = css`
   .token.builtin,
   .token.inserted {
     /* color: #690; */
-		/* color: ${theme.colors.gray}; */
+		/* color: ${theme.colors.gray100}; */
   }
 
   .token.operator,
@@ -63,7 +63,7 @@ export const prismTheme = css`
   .language-css .token.string,
   .style .token.string {
     /* color: #9a6e3a; */
-    /* color: ${theme.colors.yellow}; */
+    /* color: ${theme.colors.gray100}; */
     /* background: hsla(0, 0%, 100%, 0.5); */
   }
 
@@ -105,7 +105,7 @@ export const prismTheme = css`
     padding-right: ${theme.space[3]};
 
     background-color: #222;
-    box-shadow: inset 2px 0px 0 0px ${theme.colors.blue};
+    box-shadow: inset 2px 0px 0 0px ${theme.colors.blue100};
 
 		display: block;
 
