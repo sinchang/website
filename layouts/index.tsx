@@ -35,7 +35,7 @@ export default (frontMatter: FrontMatter) => {
             {frontMatter.title}{' '}
             {frontMatter.draft && (
               <Tooltip label="This article is work in progress" side="top" align="center">
-                <Badge variant="white" ml={1} mt="-1px">
+                <Badge variant="gray" ml={1} mt="-1px">
                   Draft
                 </Badge>
               </Tooltip>

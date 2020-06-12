@@ -25,7 +25,7 @@ export default function TitleAndMetaTags({
       <title>
         {title} — {description}
       </title>
-      
+
       <meta name="robots" content="noindex" />
 
       <meta property="og:url" content={domain} />
