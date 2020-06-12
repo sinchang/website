@@ -36,6 +36,6 @@
     "babel-plugin-styled-components": "^1.10.7",
     "prettier": "^2.0.1",
     "rehype": "^9.0.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.5"
   }
 }
