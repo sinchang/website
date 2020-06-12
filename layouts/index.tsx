@@ -48,12 +48,12 @@ export default (frontMatter: FrontMatter) => {
 
           <Box my={5}>{children}</Box>
 
-          <Divider mt={6} mb={5} size={3} align="left" />
+          <Divider mt={6} mb={5} size={2} />
 
           <Box mb={5}>
             <Text as="p" size={4}>
               Share this post on{' '}
-              <Link href={twitterShare} target="_blank" title="Share this post on Twitter" variant="twitter">
+              <Link href={twitterShare} target="_blank" title="Share this post on Twitter" variant="ghost">
                 Twitter
               </Link>
             </Text>
