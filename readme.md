@@ -1,4 +1,4 @@
-### An open source repo for Pedro Duarte's personal website
+### An open source repo for sinchang's personal website
 
 ---
 
