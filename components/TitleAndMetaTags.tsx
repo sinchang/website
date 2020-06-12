@@ -13,7 +13,7 @@ export default function TitleAndMetaTags({
   url = 'https://sinchang.me',
   pathname,
   title = 'Jeff Wen aka sinchang',
-  description = 'Front-end developer',
+  description = 'A Frontend developer from Shanghai',
 }: TitleAndMetaTagsProps) {
   const router = useRouter();
 

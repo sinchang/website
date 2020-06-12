@@ -6,7 +6,7 @@ type WindowWithAnalytics = Window &
     gtag: any;
   };
 
-const trackingID = 'UA-28314827-1';
+const trackingID = 'UA-41610509-10';
 
 export const useAnalytics = () => {
   React.useEffect(() => {

@@ -17,10 +17,10 @@ export default (frontMatter: FrontMatter) => {
 		`;
 
     return (
-      <Box sx={{ bg: 'black', color: 'white' }}>
+      <Box>
         <TitleAndMetaTags description={frontMatter.title} />
 
-        <Container mx={[4, 5, 6]} py={[4, 5]}>
+        <Container mx={[4, 5, 6]} py={[4, 5]} size={4} >
           <Box mb={[5, 6]}>
             <NextLink href="/" passHref>
               <Link variant="ghost">
@@ -53,7 +53,7 @@ export default (frontMatter: FrontMatter) => {
           <Box mb={5}>
             <Text as="p" size={4}>
               Share this post on{' '}
-              <Link href={twitterShare} target="_blank" title="Share this post on Twitter" variant="ghost">
+              <Link href={twitterShare} title="Share this post on Twitter" variant="ghost">
                 Twitter
               </Link>
             </Text>

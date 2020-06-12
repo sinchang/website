@@ -16,7 +16,6 @@ const theme = Radix.theme;
 export const GlobalStyles = createGlobalStyle(
   {
     body: {
-      backgroundColor: theme.colors.black,
       color: theme.colors.white,
       fontFamily: theme.fonts.normal,
       margin: 0,
@@ -29,11 +28,6 @@ export const GlobalStyles = createGlobalStyle(
     figure: { margin: 0 },
 
     svg: { display: 'inline-block', verticalAlign: 'middle' },
-
-    '&::selection': {
-      backgroundColor: '#2cbe4e',
-      color: 'black',
-    },
   },
   prismTheme
 );
@@ -58,7 +52,7 @@ function App({ Component, pageProps }: AppProps) {
                 </NextLink>
               );
             }
-            return <Radix.Link href={href} target="_blank" {...props} />;
+            return <Radix.Link href={href} {...props} />;
           },
           hr: (props) => <Radix.Divider my={5} size={1} align="left" {...props} />,
           inlineCode: (props) => <Radix.Code {...props} />,

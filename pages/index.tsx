@@ -12,32 +12,29 @@ const Home = () => {
 
       <Box sx={{ bg: 'white', color: 'black' }}>
         <Container mx={[4, 5, 6]} py={[4, 5]} size={3}>
-          <Text as="h1" size={2} mb={[7, 8]} weight="medium" sx={{ textTransform: 'uppercase' }}>
+          <Text as="h1" size={3} mb={[7, 8]} weight="medium" sx={{ textTransform: 'uppercase' }}>
             Jeff <Text sx={{ color: 'gray' }}>Wen</Text>
           </Text>
 
-          <Text as="p" size={5}>
+          <Text as="p" size={6}>
             I'm a Frontend developer.
           </Text>
 
-          <Text as="p" size={5} mt={6}>
-            Right now I'm working on{' '}
-            <Link href="https://iherb.com" target="_blank">
-              iHerb.
-            </Link>
+          <Text as="p" size={6} mt={6}>
+            Right now I'm working on <Link href="https://iherb.com">iHerb.</Link>
           </Text>
 
-          <Text as="p" size={5} mt={6}>
+          <Text as="p" size={6} mt={6}>
             I was born and raised in Cangnan. and now living in Shanghai.
           </Text>
 
-          <Text as="p" size={5} mt={6} mb={6}>
+          <Text as="p" size={6} mt={6} mb={6}>
             You can find me on{' '}
-            <Link href="https://twitter.com/sinchangwen" target="_blank" variant="ghost">
+            <Link href="https://twitter.com/sinchangwen" variant="ghost">
               <TwitterIcon />
             </Link>{' '}
             or{' '}
-            <Link href="https://github.com/sinchang" target="_blank" variant="ghost">
+            <Link href="https://github.com/sinchang" variant="ghost">
               <GithubIcon />
             </Link>
           </Text>
