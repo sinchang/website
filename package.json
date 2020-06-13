@@ -21,7 +21,7 @@
     "next": "9.3.2",
     "next-compose-plugins": "^2.2.0",
     "next-mdx-enhanced": "^2.4.0",
-    "next-optimized-images": "^2.5.5",
+    "next-optimized-images": "^2.6.1",
     "next-videos": "^1.1.4",
     "prismjs": "^1.19.0",
     "react": "16.13.1",
