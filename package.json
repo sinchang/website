@@ -9,7 +9,7 @@
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,md,mdx}' --write"
   },
   "dependencies": {
-    "@mapbox/rehype-prism": "^0.4.0",
+    "@mapbox/rehype-prism": "^0.5.0",
     "@mdx-js/loader": "^1.6.5",
     "@modulz/radix": "^0.0.1-beta.43",
     "@next/mdx": "^9.4.4",
