@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
-    "@mdx-js/loader": "^1.6.8",
+    "@mdx-js/loader": "^1.6.13",
     "@modulz/radix": "^0.0.1-beta.44",
     "@next/mdx": "^9.4.4",
     "babel-plugin-import-glob-array": "^0.2.0",
