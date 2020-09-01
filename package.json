@@ -14,7 +14,7 @@
     "@modulz/radix": "^0.0.1-beta.44",
     "@next/mdx": "^9.5.0",
     "babel-plugin-import-glob-array": "^0.2.0",
-    "date-fns": "^2.15.0",
+    "date-fns": "^2.16.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "mdx-prism": "^0.3.1",
