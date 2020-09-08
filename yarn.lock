@@ -5617,10 +5617,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next-videos@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/next-videos/-/next-videos-1.2.0.tgz#4049165672e469b01c8c9a932392073080cee34a"
-  integrity sha512-C+JlNXTjW4a/8ZhD74hbgkWK+sefmkfFF7muZRStcUCxiyz4xMpvPh9GqYr+wHiBzMULfZNm4m1v5mI9LOx9Zg==
+next-videos@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/next-videos/-/next-videos-1.4.0.tgz#6de1fabc5b6bb1d61bd856a82d1eb381c0b1f7ad"
+  integrity sha512-upTiDKjUx8CclPRU9c6Q0GY3H8aT+bHl7jdbILK3j75K1TRJOKdSxP7GyVefRWd9kgC9gLtAvCh4OrpFBuFWzg==
   dependencies:
     file-loader "^4.2.0"
 
