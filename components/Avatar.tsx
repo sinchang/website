@@ -4,11 +4,11 @@ export const Avatar = () => {
   return (
     <div>
       <Image
-        src='https://unavatar.io/twitter/xingchangwen'
-        className='avatar'
+        src="https://unavatar.io/twitter/xingchangwen"
+        className="avatar"
         width={100}
         height={100}
-        alt='jeff wen'
+        alt="jeff wen"
       />
     </div>
   )
