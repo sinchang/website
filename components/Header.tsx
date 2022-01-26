@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ToggleTheme } from './ToggleTheme'
 
 export const Header = () => {
   return (
@@ -13,6 +14,7 @@ export const Header = () => {
         <Link href="/">
           <a className="nav-item">about</a>
         </Link>
+        <ToggleTheme />
       </div>
       <style jsx>{`
         .header {
@@ -20,9 +22,13 @@ export const Header = () => {
           justify-content: space-between;
           padding: 24px 20px;
         }
-
         .nav-item {
-          padding-left: 12px;
+          padding: 0 6px;
+          display: block;
+        }
+        .header-right {
+          display: flex;
+          align-items: center;
         }
       `}</style>
     </div>
