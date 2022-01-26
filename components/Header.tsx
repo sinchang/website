@@ -23,7 +23,7 @@ export const Header = () => {
           padding: 24px 20px;
         }
         .nav-item {
-          padding: 0 6px;
+          padding-right: 12px;
           display: block;
         }
         .header-right {
