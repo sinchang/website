@@ -4,9 +4,9 @@ import { SocialIcons } from '../components/SocialIcons'
 
 const Home: NextPage = () => {
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Avatar />
-      <div className='intro'>
+      <div className="intro">
         👋 I am Jeff, currently working at iHerb as a frontend engineer,
         interested in Design System, and focus on React Ecosystem. I was born
         and raised in Cangnan, Wenzhou, now living in Shanghai.

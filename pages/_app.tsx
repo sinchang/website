@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Jeff Wen</title>
       </Head>
-      <ThemeProvider forcedTheme='dark' enableSystem={false}>
+      <ThemeProvider forcedTheme="dark" enableSystem={false}>
         <Header />
         <Component {...pageProps} />
       </ThemeProvider>

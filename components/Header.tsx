@@ -2,16 +2,16 @@ import Link from 'next/link'
 
 export const Header = () => {
   return (
-    <div className='header'>
-      <div className='header-left'>
-        <Link href='/'>jeff wen</Link>
+    <div className="header">
+      <div className="header-left">
+        <Link href="/">jeff wen</Link>
       </div>
-      <div className='header-right'>
-        <Link href='/'>
-          <a className='nav-item'>project</a>
+      <div className="header-right">
+        <Link href="/">
+          <a className="nav-item">project</a>
         </Link>
-        <Link href='/'>
-          <a className='nav-item'>about</a>
+        <Link href="/">
+          <a className="nav-item">about</a>
         </Link>
       </div>
       <style jsx>{`
