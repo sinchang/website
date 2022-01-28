@@ -1,3 +1,6 @@
 {
-  "extends": "@sinchang/eslint-config-next"
+  "extends": "@sinchang/eslint-config-next",
+  "rules": {
+    "react/no-unescaped-entities": "off"
+  }
 }
