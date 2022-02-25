@@ -11,8 +11,8 @@ export const Header = () => {
         <Link href="/">
           <a className="nav-item">project</a>
         </Link>
-        <Link href="/">
-          <a className="nav-item">about</a>
+        <Link href="https://webdevnote.com?utm_source=sinchang">
+          <a className="nav-item">tech blog</a>
         </Link>
         <ToggleTheme />
       </div>
