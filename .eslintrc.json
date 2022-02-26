@@ -1,6 +1,7 @@
 {
   "extends": "@sinchang/eslint-config-next",
   "rules": {
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "react/jsx-key": "off"
   }
 }
