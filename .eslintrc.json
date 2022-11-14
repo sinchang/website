@@ -1,7 +1,6 @@
 {
-  "extends": "@sinchang/eslint-config-next",
+  "extends": "next/core-web-vitals",
   "rules": {
-    "react/no-unescaped-entities": "off",
-    "react/jsx-key": "off"
+    "react/no-unescaped-entities": "off"
   }
 }
