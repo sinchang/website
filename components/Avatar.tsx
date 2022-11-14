@@ -4,7 +4,7 @@ export const Avatar = () => {
   return (
     <div>
       <Image
-        src="https://unavatar.io/twitter/xingchangwen"
+        src="https://unavatar.io/github/sinchang"
         className="avatar"
         width={100}
         height={100}
