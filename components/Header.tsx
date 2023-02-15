@@ -11,8 +11,8 @@ export const Header = () => {
         <Link href="/">
           <a className="nav-item">project</a>
         </Link>
-        <Link href="https://webdevnote.com?utm_source=sinchang">
-          <a className="nav-item">tech blog</a>
+        <Link href="https://wiki.sinchang.me?utm_source=sinchang">
+          <a className="nav-item">wiki</a>
         </Link>
         <ToggleTheme />
       </div>
