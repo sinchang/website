@@ -8,7 +8,7 @@ export const Header = () => {
         <Link href="/">jeff wen</Link>
       </div>
       <div className="header-right">
-        <Link href="/">
+        <Link href="https://wiki.sinchang.me/projects">
           <a className="nav-item">project</a>
         </Link>
         <Link href="https://wiki.sinchang.me?utm_source=sinchang">
