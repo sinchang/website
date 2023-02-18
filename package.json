@@ -10,7 +10,6 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@happykit/analytics": "1.0.1",
     "next": "13.0.3",
     "next-themes": "0.1.1",
     "react": "18.2.0",

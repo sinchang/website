@@ -9,10 +9,10 @@ export const Header = () => {
       </div>
       <div className="header-right">
         <Link href="https://wiki.sinchang.me/projects">
-          <a className="nav-item">project</a>
+          <span className="nav-item">project</span>
         </Link>
         <Link href="https://wiki.sinchang.me?utm_source=sinchang">
-          <a className="nav-item">wiki</a>
+          <span className="nav-item">wiki</span>
         </Link>
         <ToggleTheme />
       </div>
