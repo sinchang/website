@@ -17,12 +17,10 @@ export const ToggleTheme = () => {
   if (!mounted) return null
 
   return (
-    <a onClick={handleSetTheme} className="trigger">
+    <a onClick={handleSetTheme} className="w-5">
       {theme === 'light'
         ? (
           <svg
-            width="21px"
-            height="21px"
             preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 24 24"
           >
@@ -34,8 +32,6 @@ export const ToggleTheme = () => {
         )
         : (
           <svg
-            width="21px"
-            height="21px"
             preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 24 24"
           >
@@ -45,14 +41,6 @@ export const ToggleTheme = () => {
             ></path>
           </svg>
         )}
-      <style jsx>{`
-        .trigger {
-          cursor: pointer;
-          display: block;
-          width: 21px;
-          height: 21px;
-        }
-      `}</style>
     </a>
   )
 }

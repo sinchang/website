@@ -3,34 +3,17 @@ import { ToggleTheme } from './ToggleTheme'
 
 export const Header = () => {
   return (
-    <div className="header">
-      <div className="header-left">
-        <Link href="/">jeff wen</Link>
-      </div>
-      <div className="header-right">
+    <div className="flex justify-between p-6">
+      <Link href="/">jeff wen</Link>
+      <div className="flex items-center gap-3">
         <Link href="https://wiki.sinchang.me/projects">
-          <span className="nav-item">project</span>
+          <span>project</span>
         </Link>
         <Link href="https://wiki.sinchang.me?utm_source=sinchang">
-          <span className="nav-item">wiki</span>
+          <span>wiki</span>
         </Link>
         <ToggleTheme />
       </div>
-      <style jsx>{`
-        .header {
-          display: flex;
-          justify-content: space-between;
-          padding: 24px 20px;
-        }
-        .nav-item {
-          padding-right: 12px;
-          display: block;
-        }
-        .header-right {
-          display: flex;
-          align-items: center;
-        }
-      `}</style>
     </div>
   )
 }
