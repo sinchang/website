@@ -1,22 +1,11 @@
 export const SocialIcons = () => {
   return (
-    <>
-      <style jsx>{`
-        .social-icon {
-          width: 24px;
-          height: 24px;
-          fill: var(--fg);
-        }
-
-        .social-logo-link {
-          margin-right: 1em;
-        }
-      `}</style>
+    <div className="flex gap-4">
       <a
         href="https://twitter.com/sinchangwen"
         target="_blank"
         title="Jeff Wen Twitter"
-        className="social-logo-link" rel="noreferrer"
+        className="w-6 h-6" rel="noreferrer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,12 +19,11 @@ export const SocialIcons = () => {
         href="https://github.com/sinchang"
         target="_blank"
         title="Jeff Wen GitHub"
-        className="social-logo-link" rel="noreferrer"
+        className="w-6 h-6" rel="noreferrer"
       >
         <svg
           viewBox="0 0 16 16"
           version="1.1"
-          width="32"
           className="social-icon"
         >
           <path
@@ -48,12 +36,12 @@ export const SocialIcons = () => {
         href="https://www.linkedin.com/in/sinchang"
         target="_blank"
         title="Jeff Wen LinkedIn"
-        className="social-logo-link" rel="noreferrer"
+        className="w-6 h-6" rel="noreferrer"
       >
         <svg viewBox="0 0 18 18" className="social-icon">
           <path d="M18 18h-4v-6.75c0-1.06-1.19-1.94-2.25-1.94S10 10.19 10 11.25V18H6V6h4v2c.66-1.07 2.36-1.76 3.5-1.76 2.5 0 4.5 2.04 4.5 4.51V18zM4 18H0V6h4v12zM2 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
         </svg>
       </a>
-    </>
+    </div>
   )
 }

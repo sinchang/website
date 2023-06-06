@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
+import { Space_Grotesk } from 'next/font/google'
 import {
   QueryClient,
   QueryClientProvider,
@@ -13,7 +14,11 @@ import { useHydrateAtoms } from "jotai/utils";
 import { globalAtom } from "../store";
 import { Header } from '../components/Header'
 
-
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+});
 const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -35,7 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
               strategy='afterInteractive'
             />
             <Header />
-            <Component {...pageProps} />
+            <main className={`${spaceGrotesk.variable} font-sans`}>
+              <Component {...pageProps} />
+            </main>
           </ThemeProvider>
         </HydrationBoundary>
         <ReactQueryDevtools />
