@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons")
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +13,10 @@ module.exports = {
         sans: ['var(--font-space-grotesk)'],
       },
   },
-  plugins: [],
+  plugins: [
+    iconsPlugin({
+      collections: getIconCollections(["ri"]),
+    }),
+  ],
 }
 
