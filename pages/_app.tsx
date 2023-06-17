@@ -35,8 +35,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <HydrationBoundary state={pageProps.dehydratedState}>
           <ThemeProvider enableSystem={false} defaultTheme="dark">
             <Script
-              data-website-id="2a683fa7-f0d6-49b6-a2c5-1832c6d5e81b"
-              src="https://umami-production-af5b.up.railway.app/umami.js"
+              src="https://umami-sinchang.vercel.app/script.js" 
+              data-website-id="a22d725d-fab9-46ed-9fdc-00b595b9d3d1"
               strategy='afterInteractive'
             />
             <Header />
