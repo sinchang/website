@@ -1,8 +1,7 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import { QueryClient, dehydrate } from '@tanstack/react-query'
-import { GetServerSideProps } from 'next'
-import { getTodos, useTodos } from '../hooks'
 import { useAtom } from 'jotai'
+import { getTodos, useTodos } from '../hooks'
 import { globalAtom } from '../store'
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -21,7 +20,8 @@ const Todos: NextPage = () => {
   const { data } = useTodos()
   const [value] = useAtom(globalAtom)
 
-  if (!data) return null
+  if (!data)
+    return null
   return (
     <div className="wrapper">
       <p>Current Language: {value.language}</p>

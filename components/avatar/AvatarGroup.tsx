@@ -1,6 +1,6 @@
-import { Avatar } from "./Avatar"
+import { Avatar } from './Avatar'
 
-export const AvatarGroup = () => {
+export function AvatarGroup() {
   return (
    <div className="flex items-center justify-end h-[50vh] w-[52%]">
      <div className="flex [&>*:not(:last-child)]:hover:mr-1">
@@ -23,4 +23,3 @@ export const AvatarGroup = () => {
    </div>
   )
 }
-

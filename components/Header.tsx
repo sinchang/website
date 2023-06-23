@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ToggleTheme } from './ToggleTheme'
 
-export const Header = () => {
+export function Header() {
   return (
     <div className="flex justify-between p-6">
       <Link href="/">jeff wen</Link>

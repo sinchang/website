@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-export const ToggleTheme = () => {
+export function ToggleTheme() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -14,17 +14,18 @@ export const ToggleTheme = () => {
     setMounted(true)
   }, [])
 
-  if (!mounted) return null
+  if (!mounted)
+    return null
 
   return (
     <a onClick={handleSetTheme} className="w-5 h-5">
       {theme === 'light'
         ? (
           <span className="i-ri-sun-line w-full h-full"></span>
-        )
+          )
         : (
           <span className="i-ri-moon-fill w-full h-full"></span>
-        )}
+          )}
     </a>
   )
 }

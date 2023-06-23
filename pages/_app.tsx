@@ -5,26 +5,25 @@ import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
 import { Space_Grotesk } from 'next/font/google'
 import {
+  HydrationBoundary,
   QueryClient,
   QueryClientProvider,
-  HydrationBoundary,
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { useHydrateAtoms } from "jotai/utils";
-import { globalAtom } from "../store";
+import { useHydrateAtoms } from 'jotai/utils'
+import { globalAtom } from '../store'
 import { Header } from '../components/Header'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-space-grotesk',
-});
+})
 const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { initialState } = pageProps;
-  // @ts-ignore
-  useHydrateAtoms(initialState ? [[globalAtom, initialState]] : []);
+  const { initialState } = pageProps
+  useHydrateAtoms(initialState ? [[globalAtom, initialState]] : [])
 
   return (
     <>
@@ -35,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <HydrationBoundary state={pageProps.dehydratedState}>
           <ThemeProvider enableSystem={false} defaultTheme="dark">
             <Script
-              src="https://umami-sinchang.vercel.app/script.js" 
+              src="https://umami-sinchang.vercel.app/script.js"
               data-website-id="a22d725d-fab9-46ed-9fdc-00b595b9d3d1"
               strategy='afterInteractive'
             />
