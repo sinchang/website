@@ -9,7 +9,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useHydrateAtoms } from 'jotai/utils'
 import { globalAtom } from '../store'
 import { Header } from '../components/Header'
@@ -44,7 +43,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             </main>
           </ThemeProvider>
         </HydrationBoundary>
-        <ReactQueryDevtools />
       </QueryClientProvider>
     </>
   )
