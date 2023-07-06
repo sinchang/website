@@ -9,6 +9,9 @@ const uiSnippets: {
 }[] = [{
   url: '/ui/avatar',
   name: 'Avatar Group',
+}, {
+  url: '/ui/player',
+  name: 'Audio Player',
 }]
 
 const Home: NextPage = () => {

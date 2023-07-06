@@ -4,6 +4,6 @@ module.exports = ({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['unavatar.io']
-  }
+    domains: ['unavatar.io', 'testingcf.jsdelivr.net'],
+  },
 })
