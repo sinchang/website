@@ -16,19 +16,19 @@ const uiSnippets: {
 
 const Home: NextPage = () => {
   return (
-    <div className="lg:max-w-[50%] max-w-[80%] lg:pl-[10vw] lg:pt-[10vh] pl-[1vw] pr-[1vw] lg:mx-0 mx-auto">
+    <div className="mx-auto max-w-[80%] px-[1vw] lg:mx-0 lg:max-w-[50%] lg:pl-[10vw] lg:pt-[10vh]">
       <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={100} height={100} />
-      <div className="text-xl my-6">
+      <div className="my-6 text-xl">
         👋 I'm Jeff, currently working at a Ecommerce company as a frontend engineer,
         interested in Design System, and focus on React Ecosystem. I was born
         and raised in Cangnan, Wenzhou, now living in Shanghai.
       </div>
       <SocialIcons />
       <div className='mt-36'>
-        <h1 className='font-bold text-xl pl-3'>UI</h1>
+        <h1 className='pl-3 text-xl font-bold'>UI</h1>
         <ul className='mt-3'>
           {uiSnippets.map(ui => (
-            <li key={ui.url} ><Link href={ui.url} className='p-3 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg w-[100%] block'>{ui.name}</Link></li>
+            <li key={ui.url} ><Link href={ui.url} className='block w-[100%] rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800'>{ui.name}</Link></li>
           ))}
         </ul>
       </div>

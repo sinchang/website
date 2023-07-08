@@ -18,13 +18,13 @@ export function ToggleTheme() {
     return null
 
   return (
-    <a onClick={handleSetTheme} className="w-5 h-5">
+    <a onClick={handleSetTheme} className="h-5 w-5">
       {theme === 'light'
         ? (
-          <span className="i-ri-sun-line w-full h-full"></span>
+          <span className="i-ri-sun-line h-full w-full"></span>
           )
         : (
-          <span className="i-ri-moon-fill w-full h-full"></span>
+          <span className="i-ri-moon-fill h-full w-full"></span>
           )}
     </a>
   )

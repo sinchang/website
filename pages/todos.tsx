@@ -23,10 +23,10 @@ const Todos: NextPage = () => {
   if (!data)
     return null
   return (
-    <div className="wrapper">
+    <>
       <p>Current Language: {value.language}</p>
       {data.map(item => <div key={item.id}>{item.id}: {item.title}</div>)}
-    </div>
+    </>
   )
 }
 
