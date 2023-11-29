@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import { Avatar } from '../components/avatar'
 import { SocialIcons } from '../components/SocialIcons'
+import { NowPlaying } from '../components/Spotify'
 
 const uiSnippets: {
   url: string
@@ -32,6 +33,13 @@ const Home: NextPage = () => {
           ))}
         </ul>
       </div>
+      <div className='mt-36'>
+        <h1 className='pl-3 text-xl'><strong>Now Playing</strong> on Spotify</h1>
+        <ul className='mt-3'>
+          <NowPlaying />
+        </ul>
+      </div>
+      <div className='mt-36'></div>
     </div>
   )
 }
