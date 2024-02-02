@@ -13,6 +13,10 @@ const uiSnippets: {
 }, {
   url: '/ui/player',
   name: 'Audio Player',
+},
+{
+  url: '/ui/flight',
+  name: 'Flight Widget',
 }]
 
 const Home: NextPage = () => {
