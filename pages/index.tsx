@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Avatar } from '../components/avatar'
 import { SocialIcons } from '../components/SocialIcons'
 import { NowPlaying } from '../components/Spotify'
+import { Projects } from '../components/Projects'
 
 const uiSnippets: {
   url: string
@@ -29,7 +30,8 @@ const Home: NextPage = () => {
         and raised in Cangnan, Wenzhou, now living in Shanghai.
       </div>
       <SocialIcons />
-      <div className='mt-36'>
+      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
+      <div>
         <h1 className='pl-3 text-xl font-bold'>UI</h1>
         <ul className='mt-3'>
           {uiSnippets.map(ui => (
@@ -37,13 +39,17 @@ const Home: NextPage = () => {
           ))}
         </ul>
       </div>
-      <div className='mt-36'>
-        <h1 className='pl-3 text-xl'><strong>Now Playing</strong> on Spotify</h1>
-        <ul className='mt-3'>
-          <NowPlaying />
-        </ul>
+      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
+      <div>
+        <h1 className='pl-3 text-xl font-bold'>Projects</h1>
+        <Projects />
       </div>
-      <div className='mt-36'></div>
+      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
+      <h1 className='pl-3 text-xl'><strong>Now Playing</strong> on Spotify</h1>
+      <ul className='mt-3'>
+        <NowPlaying />
+      </ul>
+      <div className='my-16'></div>
     </div>
   )
 }
