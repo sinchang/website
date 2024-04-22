@@ -44,11 +44,6 @@ const Home: NextPage = () => {
         <h1 className='pl-3 text-xl font-bold'>Projects</h1>
         <Projects />
       </div>
-      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
-      <h1 className='pl-3 text-xl'><strong>Now Playing</strong> on Spotify</h1>
-      <ul className='mt-3'>
-        <NowPlaying />
-      </ul>
       <div className='my-16'></div>
     </div>
   )
