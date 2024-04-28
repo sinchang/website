@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import { Avatar } from '../components/avatar'
 import { SocialIcons } from '../components/SocialIcons'
-import { NowPlaying } from '../components/Spotify'
 import { Projects } from '../components/Projects'
 
 const uiSnippets: {
