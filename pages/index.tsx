@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Avatar } from '../components/avatar'
 import { SocialIcons } from '../components/SocialIcons'
 import { Projects } from '../components/Projects'
+import { CheckIn } from '../components/CheckIn'
 
 const uiSnippets: {
   url: string
@@ -43,7 +44,9 @@ const Home: NextPage = () => {
         <h1 className='pl-3 text-xl font-bold'>Projects</h1>
         <Projects />
       </div>
-      <div className='my-16'></div>
+      <div className='my-16'>
+        <CheckIn />
+      </div>
     </div>
   )
 }
