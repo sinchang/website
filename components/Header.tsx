@@ -6,9 +6,9 @@ export function Header() {
     <div className="flex justify-between p-6">
       <Link href="/">jeff wen</Link>
       <div className="flex items-center gap-3">
-        <Link href="https://resume.sinchang.me/resume.pdf">
+{/*         <Link href="https://resume.sinchang.me/resume.pdf">
           <span>Resume</span>
-        </Link>
+        </Link> */}
         {/* <Link href="https://wiki.sinchang.me?utm_source=sinchang">
           <span>wiki</span>
         </Link> */}
