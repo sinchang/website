@@ -21,3 +21,7 @@ div#__next {
 main {
   @apply h-full;
 }
+
+.mapboxgl-popup-content {
+  color: #333;
+}
