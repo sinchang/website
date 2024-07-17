@@ -8,3 +8,16 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
 }
+
+html {
+  @apply h-full;
+}
+body {
+  @apply h-full;
+}
+div#__next {
+  @apply h-full;
+}
+main {
+  @apply h-full;
+}
