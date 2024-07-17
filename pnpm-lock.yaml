@@ -67,6 +67,9 @@ devDependencies:
   '@types/react':
     specifier: 17.0.39
     version: 17.0.39
+  '@types/sql.js':
+    specifier: ^1.4.9
+    version: 1.4.9
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.16(postcss@8.4.31)
@@ -543,6 +546,10 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
+  /@types/emscripten@1.39.13:
+    resolution: {integrity: sha512-cFq+fO/isvhvmuP/+Sl4K4jtU6E23DoivtbO4r50e3odaxAiVdbfSYRDdJ4gCdxx+3aRjhphS5ZMwIH4hFy/Cw==}
+    dev: true
+
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: true
@@ -580,6 +587,13 @@ packages:
 
   /@types/semver@7.5.5:
     resolution: {integrity: sha512-+d+WYC1BxJ6yVOgUgzK8gWvp5qF8ssV5r4nsDcZWKRWcDQLQ619tvWAxJQYGgBrO1MnLJC7a5GtiYsAoQ47dJg==}
+    dev: true
+
+  /@types/sql.js@1.4.9:
+    resolution: {integrity: sha512-ep8b36RKHlgWPqjNG9ToUrPiwkhwh0AEzy883mO5Xnd+cL6VBH1EvSjBAAuxLUFF2Vn/moE3Me6v9E1Lo+48GQ==}
+    dependencies:
+      '@types/emscripten': 1.39.13
+      '@types/node': 17.0.21
     dev: true
 
   /@types/unist@2.0.10:

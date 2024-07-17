@@ -1,14 +1,15 @@
+// @ts-nocheck
 import { NextPage } from "next"
 import { useEffect, useRef, useState } from "react"
-import * as initSqlJs from "sql.js"
-import mapboxgl from 'mapbox-gl';
+import initSqlJs from "sql.js";
+import mapboxgl, { type Map } from 'mapbox-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MyCheckIn: NextPage = () => {
   const [checkIns, setCheckIns] = useState([])
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef();
+  const mapRef = useRef<Map | null>(null);
 
   useEffect(() => {
     async function fetchMyCheckIn() {
@@ -47,7 +48,7 @@ const MyCheckIn: NextPage = () => {
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2luY2hhbmciLCJhIjoiY2x5cGlod2FsMDBmODJtcHQ4dHoydjRydyJ9.sorXWyvgNe7cSVX7OY2IYg';
 
     mapRef.current = new mapboxgl.Map({
-      container: mapContainerRef.current,
+      container: mapContainerRef.current as HTMLDivElement,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [121.4737, 31.2304],
       zoom: 2.2
