@@ -143,8 +143,8 @@ const MyCheckIn: NextPage = () => {
       // description HTML from its properties.
       mapRef.current.on('click', 'unclustered-point', (e) => {
         const coordinates = e.features[0].geometry.coordinates.slice();
-        const mag = e.features[0].properties.mag;
-        const tsunami = e.features[0].properties.tsunami === 1 ? 'yes' : 'no';
+        const name = e.features[0].properties.name;
+        const country = e.features[0].properties.country
 
         // Ensure that if the map is zoomed out such that
         // multiple copies of the feature are visible, the
@@ -155,7 +155,7 @@ const MyCheckIn: NextPage = () => {
 
         new mapboxgl.Popup()
           .setLngLat(coordinates)
-          .setHTML(`magnitude: ${mag}<br>Was there a tsunami?: ${tsunami}`)
+          .setHTML(`[${country}]: ${name}`)
           .addTo(mapRef.current);
       });
 
