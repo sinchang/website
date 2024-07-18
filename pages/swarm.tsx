@@ -8,6 +8,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const getServerSideProps = (async () => {
   const sqlPromise = await initSqlJs({
+    locateFile: file => `utils/${file}`
   })
   const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db").then(res => res.arrayBuffer());
   const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise])
