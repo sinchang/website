@@ -1,14 +1,15 @@
 // @ts-nocheck
 import { NextPage } from "next"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import initSqlJs from "sql.js";
 import mapboxgl, { type Map } from 'mapbox-gl';
+import path from 'path'
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const getServerSideProps = (async () => {
   const sqlPromise = await initSqlJs({
-    locateFile: file => `utils/${file}`
+    locateFile: file => path.resolve(process.cwd(), 'public', `${file}`)
   })
   const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db").then(res => res.arrayBuffer());
   const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise])
@@ -27,7 +28,7 @@ export const getServerSideProps = (async () => {
   return { props: { checkIns } }
 })
 
-const MyCheckIn: NextPage = ({checkIns}) => {
+const MyCheckIn: NextPage = ({ checkIns }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
 
