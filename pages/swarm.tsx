@@ -6,42 +6,29 @@ import mapboxgl, { type Map } from 'mapbox-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const MyCheckIn: NextPage = () => {
-  const [checkIns, setCheckIns] = useState([])
+export const getServerSideProps = (async () => {
+  const sqlPromise = await initSqlJs({
+  })
+  const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db").then(res => res.arrayBuffer());
+  const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise])
+  const db = new SQL.Database(new Uint8Array(buffer));
+  const res = db.exec("select venues.name, venues.country, venues.latitude, venues.longitude, venues.cc from checkins INNER JOIN venues ON venues.id=checkins.venue order by created desc");
+
+  const checkIns = []
+  for (const item of res[0].values) {
+    checkIns.push({
+      "type": "Feature",
+      "properties": { "name": item[0], "country": item[1], cc: item[4] },
+      "geometry": { "type": "Point", "coordinates": [item[3], item[2]] }
+    })
+  }
+
+  return { props: { checkIns } }
+})
+
+const MyCheckIn: NextPage = ({checkIns}) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
-
-  useEffect(() => {
-    async function fetchMyCheckIn() {
-      const sqlPromise = await initSqlJs({
-        // Required to load the wasm binary asynchronously. Of course, you can host it wherever you want
-        // You can omit locateFile completely when running in node
-        locateFile: (file: string) => `https://sql.js.org/dist/${file}`
-      });
-
-      // Create a database
-      const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db").then(res => res.arrayBuffer());
-      const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
-      const db = new SQL.Database(new Uint8Array(buf));
-
-      const res = db.exec("select venues.name, venues.country, venues.latitude, venues.longitude, venues.cc from checkins INNER JOIN venues ON venues.id=checkins.venue order by created desc");
-
-      const features = []
-      for (const item of res[0].values) {
-        features.push({
-          "type": "Feature",
-          "properties": { "name": item[0], "country": item[1], cc: item[4] },
-          "geometry": { "type": "Point", "coordinates": [item[3], item[2]] }
-        })
-      }
-
-      setCheckIns(features)
-    }
-
-    fetchMyCheckIn()
-
-  }, [])
-
 
   useEffect(() => {
     if (!Array.isArray(checkIns)) return
