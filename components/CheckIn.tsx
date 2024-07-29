@@ -21,7 +21,7 @@ export function CheckIn() {
 
   return checkInDetails?.name
     ? <div className='text-sm'>
-      <span>Last Swarm Check-in: </span>
+      <span>Last seen at: </span>
       <a href={`https://www.google.com/maps/place/${checkInDetails.latitude}+${checkInDetails.longitude}`}>{countryCodeToFlagEmoji(checkInDetails.cc)} {checkInDetails?.name}</a></div>
     : null
 }
