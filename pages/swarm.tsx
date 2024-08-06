@@ -6,6 +6,7 @@ import mapboxgl, { type Map } from 'mapbox-gl';
 import path from 'path'
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { SwarmInfo } from "../components/SwarmInfo";
 
 export const getServerSideProps = (async () => {
   const sqlPromise = await initSqlJs({
@@ -14,21 +15,40 @@ export const getServerSideProps = (async () => {
   const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db").then(res => res.arrayBuffer());
   const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise])
   const db = new SQL.Database(new Uint8Array(buffer));
-  const res = db.exec("select venues.name, venues.country, venues.latitude, venues.longitude, venues.cc from checkins INNER JOIN venues ON venues.id=checkins.venue order by created desc");
+  const res = db.exec("select venues.name, venues.country, venues.latitude, venues.longitude, venues.cc,venues.id from checkins INNER JOIN venues ON venues.id=checkins.venue order by created desc");
 
   const checkIns = []
+  const places = []
+  const countries = {}
   for (const item of res[0].values) {
+    const [name, country, lat, lng, cc, id] = item
     checkIns.push({
       "type": "Feature",
-      "properties": { "name": item[0], "country": item[1], cc: item[4] },
-      "geometry": { "type": "Point", "coordinates": [item[3], item[2]] }
+      "properties": { name, country, cc, id },
+      "geometry": { "type": "Point", "coordinates": [lng, lat] }
     })
+
+    if (!places.includes(id)) {
+      places.push(id)
+    }
+
+    if (countries[cc]) {
+      countries[cc].checkInsCount++
+      if (!countries[cc].places.includes(id)) {
+        countries[cc].places.push(id)
+      }
+    } else {
+      countries[cc] = {
+        checkInsCount: 1,
+        places: [id]
+      }
+    }
   }
 
-  return { props: { checkIns } }
+  return { props: { checkIns,countries,places } }
 })
 
-const MyCheckIn: NextPage = ({ checkIns }) => {
+const MyCheckIn: NextPage = ({ checkIns,countries,places }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
 
@@ -40,7 +60,9 @@ const MyCheckIn: NextPage = ({ checkIns }) => {
       container: mapContainerRef.current as HTMLDivElement,
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [121.4737, 31.2304],
-      zoom: 2.2
+      zoom: 2,
+      logoPosition: 'top-right',
+      attributionControl: false,
     });
 
     mapRef.current.on('load', () => {
@@ -161,7 +183,9 @@ const MyCheckIn: NextPage = ({ checkIns }) => {
 
 
 
-  return <div ref={mapContainerRef} id="map" style={{ height: '100%' }}></div>;
+  return <div ref={mapContainerRef} id="map" style={{ height: '100%' }}>
+    <SwarmInfo checkInCount={checkIns.length} placeCount={places.length} countryCount={Object.keys(countries).length} />
+  </div>;
 }
 
 export default MyCheckIn
