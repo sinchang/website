@@ -12,11 +12,11 @@ export const getServerSideProps = (async () => {
   const sqlPromise = await initSqlJs({
     locateFile: file => path.resolve(process.cwd(), 'public', `${file}`)
   })
-  const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db").then(res => res.arrayBuffer());
+  const dataPromise = fetch("https://my-swarm.vercel.app/checkins.db", { next: { revalidate: 3600 } }).then(res => res.arrayBuffer());
   const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise])
   const db = new SQL.Database(new Uint8Array(buffer));
   const res = db.exec("select venues.name, venues.country, venues.latitude, venues.longitude, venues.cc,venues.id from checkins INNER JOIN venues ON venues.id=checkins.venue order by created desc");
-  
+
   const checkIns = []
   const places = []
   const countries = {}
@@ -45,10 +45,10 @@ export const getServerSideProps = (async () => {
     }
   }
 
-  return { props: { checkIns,countries,places } }
+  return { props: { checkIns, countries, places } }
 })
 
-const MyCheckIn: NextPage = ({ checkIns,countries,places }) => {
+const MyCheckIn: NextPage = ({ checkIns, countries, places }) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<Map | null>(null);
 
