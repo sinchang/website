@@ -16,7 +16,7 @@ export const getServerSideProps = (async () => {
   const [SQL, buffer] = await Promise.all([sqlPromise, dataPromise])
   const db = new SQL.Database(new Uint8Array(buffer));
   const res = db.exec("select venues.name, venues.country, venues.latitude, venues.longitude, venues.cc,venues.id from checkins INNER JOIN venues ON venues.id=checkins.venue order by created desc");
-
+  
   const checkIns = []
   const places = []
   const countries = {}
