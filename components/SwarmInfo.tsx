@@ -1,4 +1,4 @@
-import { AnimatedNumber } from './animatedNumber'
+import { AnimatedNumber } from './AnimatedNumber'
 
 interface SwarmInfoProps {
   checkInCount: number
