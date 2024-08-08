@@ -13,6 +13,7 @@
     "@egoist/tailwindcss-icons": "^1.1.0",
     "@iconify-json/ri": "^1.1.9",
     "@tanstack/react-query": "5.0.0-alpha.21",
+    "@turf/turf": "^7.0.0",
     "axios": "^1.3.6",
     "browserify-fs": "^1.0.0",
     "country-code-to-flag-emoji": "^1.3.3",

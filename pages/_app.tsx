@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               data-website-id="a22d725d-fab9-46ed-9fdc-00b595b9d3d1"
               strategy='afterInteractive'
             />
-            { router.pathname !== '/swarm' && <Header /> }
+            {!['/swarm', '/route'].includes(router.pathname) && <Header /> }
             <main className={`${spaceGrotesk.variable} font-sans`}>
               <Component {...pageProps} />
             </main>
