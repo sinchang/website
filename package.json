@@ -9,6 +9,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
+  "packageManager": "pnpm@9.12.1",
   "dependencies": {
     "@egoist/tailwindcss-icons": "^1.1.0",
     "@iconify-json/ri": "^1.1.9",
