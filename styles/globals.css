@@ -25,3 +25,6 @@ main {
 .mapboxgl-popup-content {
   color: #333;
 }
+.mapboxgl-ctrl-logo {
+  display: none!important;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import countryCodeToFlagEmoji from 'country-code-to-flag-emoji'
+import { MapCard } from './MapCard'
 
 export function CheckIn() {
   const [checkInDetails, setCheckInDetails] = useState<{
@@ -19,9 +19,18 @@ export function CheckIn() {
       })
   }, [])
 
+  // return checkInDetails?.name
+  //   ? <div className='text-sm'>
+  //     <span>Last seen at: </span>
+  //     <a href={`https://www.google.com/maps/place/${checkInDetails.latitude}+${checkInDetails.longitude}`}>{countryCodeToFlagEmoji(checkInDetails.cc)} {checkInDetails?.name}</a></div>
+  //   : null
+
   return checkInDetails?.name
     ? <div className='text-sm'>
       <span>Last seen at: </span>
-      <a href={`https://www.google.com/maps/place/${checkInDetails.latitude}+${checkInDetails.longitude}`}>{countryCodeToFlagEmoji(checkInDetails.cc)} {checkInDetails?.name}</a></div>
+      <div className='my-4 block'>
+        <MapCard latitude={Number(checkInDetails.latitude)} longitude={Number(checkInDetails.longitude)} />
+      </div>
+      </div>
     : null
 }
