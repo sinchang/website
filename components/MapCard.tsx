@@ -29,13 +29,14 @@ export function MapCard({ latitude, longitude }: { latitude: number; longitude: 
     const pulsingDot = {
       width: size,
       height: size,
-      data: new Uint8Array(size * size * 4),
+      data: new Uint8ClampedArray(size * size * 4),
+      context: null as CanvasRenderingContext2D | null,
 
       onAdd() {
         const canvas = document.createElement('canvas')
-        canvas.width = this.width
-        canvas.height = this.height
-        this.context = canvas.getContext('2d')
+        canvas.width = pulsingDot.width
+        canvas.height = pulsingDot.height
+        pulsingDot.context = canvas.getContext('2d')
       },
 
       render() {
@@ -44,32 +45,34 @@ export function MapCard({ latitude, longitude }: { latitude: number; longitude: 
 
         const radius = (size / 2) * 0.3
         const outerRadius = (size / 2) * 0.7 * t + radius
-        const context = this.context
+        const context = pulsingDot.context
 
-        context.clearRect(0, 0, this.width, this.height)
-        context.beginPath()
-        context.arc(
-          this.width / 2,
-          this.height / 2,
-          outerRadius,
-          0,
-          Math.PI * 2,
-        )
-        context.fillStyle = `rgba(255, 200, 200, ${1 - t})`
-        context.fill()
+        if (context) {
+          context.clearRect(0, 0, pulsingDot.width, pulsingDot.height)
+          context.beginPath()
+          context.arc(
+            pulsingDot.width / 2,
+            pulsingDot.height / 2,
+            outerRadius,
+            0,
+            Math.PI * 2,
+          )
+          context.fillStyle = `rgba(255, 200, 200, ${1 - t})`
+          context.fill()
 
-        context.beginPath()
-        context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2)
-        context.fillStyle = 'rgba(255, 100, 100, 1)'
-        context.strokeStyle = 'white'
-        context.lineWidth = 2 + 4 * (1 - t)
-        context.fill()
-        context.stroke()
+          context.beginPath()
+          context.arc(pulsingDot.width / 2, pulsingDot.height / 2, radius, 0, Math.PI * 2)
+          context.fillStyle = 'rgba(255, 100, 100, 1)'
+          context.strokeStyle = 'white'
+          context.lineWidth = 2 + 4 * (1 - t)
+          context.fill()
+          context.stroke()
 
-        this.data = context.getImageData(0, 0, this.width, this.height).data
+          pulsingDot.data = context.getImageData(0, 0, pulsingDot.width, pulsingDot.height).data
 
-        if (mapRef.current)
-          mapRef.current.triggerRepaint()
+          if (mapRef.current)
+            mapRef.current.triggerRepaint()
+        }
 
         return true
       },
@@ -107,5 +110,5 @@ export function MapCard({ latitude, longitude }: { latitude: number; longitude: 
     })
   }, [])
 
-  return <div id="map" ref={mapContainerRef} style={{ height: '200px', width: '100%' }}></div>
+  return <div id="map" ref={mapContainerRef} className="h-full w-full"></div>
 }

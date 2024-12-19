@@ -26,9 +26,9 @@ export function CheckIn() {
   //   : null
 
   return checkInDetails?.name
-    ? <div className='text-sm'>
-      <span>Last seen at: </span>
-      <div className='my-4 block'>
+    ? <div>
+      <h1 className='pl-3 text-xl font-bold'>Last seen at:</h1>
+      <div className='relative my-4 block h-[300px] w-[300px] overflow-hidden rounded-3xl' >
         <MapCard latitude={Number(checkInDetails.latitude)} longitude={Number(checkInDetails.longitude)} />
       </div>
       </div>
