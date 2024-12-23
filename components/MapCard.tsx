@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-export function MapCard({ latitude, longitude }: { latitude: number; longitude: number }) {
+export function MapCard({ latitude, longitude, location }: { latitude: number; longitude: number; location: string }) {
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<mapboxgl.Map | null>(null)
 
@@ -110,5 +110,7 @@ export function MapCard({ latitude, longitude }: { latitude: number; longitude: 
     })
   }, [])
 
-  return <div id="map" ref={mapContainerRef} className="h-full w-full"></div>
+  return <div id="map" ref={mapContainerRef} className="relative h-full w-full">
+    {!!location && <div className="absolute bottom-2 left-[50%] z-10 translate-x-[-50%] rounded-[8px] bg-white/70 px-2 py-1.5 text-[14px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06)] backdrop-blur-[20px]"><div className="line-clamp-1 text-black">{location}</div></div>}
+  </div>
 }
