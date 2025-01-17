@@ -10,9 +10,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { useHydrateAtoms } from 'jotai/utils'
-import { useRouter } from 'next/router'
 import { globalAtom } from '../store'
-import { Header } from '../components/Header'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -23,7 +21,6 @@ const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { initialState } = pageProps
-  const router = useRouter()
 
   useHydrateAtoms(initialState ? [[globalAtom, initialState]] : [])
 
@@ -40,8 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               data-website-id="a22d725d-fab9-46ed-9fdc-00b595b9d3d1"
               strategy='afterInteractive'
             />
-            {!['/swarm', '/route'].includes(router.pathname) && <Header /> }
-            <main className={`${spaceGrotesk.variable} font-sans`}>
+            <main className={`${spaceGrotesk.variable} min-h-screen bg-sys-bg-base font-sans`}>
               <Component {...pageProps} />
             </main>
           </ThemeProvider>

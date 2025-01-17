@@ -1,36 +1,20 @@
-import type { NextPage } from 'next'
-import Link from 'next/link'
+import letterboxd, { type Diary } from 'letterboxd-api'
+import type { InferGetServerSidePropsType } from 'next'
 import { Avatar } from '../components/avatar'
+import BentoGrid from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
-import { Projects } from '../components/Projects'
-import { CheckIn } from '../components/CheckIn'
 
-const uiSnippets: {
-  url: string
-  name: string
-}[] = [{
-  url: '/ui/avatar',
-  name: 'Avatar Group',
-}, {
-  url: '/ui/player',
-  name: 'Audio Player',
-},
-{
-  url: '/ui/flight',
-  name: 'Flight Widget',
-}]
-
-const Home: NextPage = () => {
+export default function Home({ film }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div className="mx-auto max-w-[80%] px-[1vw] lg:mx-0 lg:max-w-[50%] lg:pl-[10vw] lg:pt-[10vh]">
+    <div className="mx-auto w-full max-w-[672px] gap-3 px-3 pb-8 pt-16 md:px-6">
       <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={100} height={100} />
       <div className="my-6 text-xl">
-        👋 I'm Jeff, currently working at a Ecommerce company as a frontend engineer,
-        interested in Design System, and focus on React Ecosystem. I was born
+        👋 I'm Jeff, a software engineer. I was born
         and raised in Cangnan, Wenzhou, now living in Shanghai.
       </div>
       <SocialIcons />
-      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
+      <BentoGrid film={film} />
+      {/* <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
       <div>
         <h1 className='pl-3 text-xl font-bold'>UI</h1>
         <ul className='mt-3'>
@@ -45,9 +29,23 @@ const Home: NextPage = () => {
         <Projects />
       </div>
       <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
-      <CheckIn />
+      <CheckIn /> */}
     </div>
   )
 }
 
-export default Home
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const items = await letterboxd('sinchang')
+  // Pass data to the page via props
+  const item = items?.[0] as Diary
+  return {
+    props: {
+      film: {
+        uri: item?.uri,
+        image: item?.film?.image?.large,
+        ratingText: item.rating.text,
+      },
+    },
+  }
+}
