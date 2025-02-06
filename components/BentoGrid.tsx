@@ -10,10 +10,16 @@ const layout = [
   { i: 'b', x: 3, y: 1, w: 2, h: 2 },
 ]
 
-export default function BentoGrid({ film }: { film: {
+export default function BentoGrid({ film, checkInDetails }: { film: {
   image: string | undefined
   uri: string
   ratingText: string
+}, checkInDetails: {
+  venue: string
+  lat: string
+  lng: string
+  cc: string
+  location: string
 } }) {
   return (
         <ReactGridLayout
@@ -25,7 +31,7 @@ export default function BentoGrid({ film }: { film: {
           isResizable={false}
         >
            <div key="a">
-            <CheckIn />
+            <CheckIn {...checkInDetails} />
            </div>
          <div key="b" className="relative h-full max-w-[624px] overflow-hidden rounded-3xl border p-6 shadow-md" style={{
            backgroundColor: 'rgb(29, 24, 44)',
