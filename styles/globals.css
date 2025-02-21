@@ -22,3 +22,10 @@ main {
 .mapboxgl-ctrl-logo {
   display: none!important;
 }
+
+@media (max-width: 768px) {
+  #map canvas {
+    width: 100%!important;
+    height: auto!important;
+  }
+}
