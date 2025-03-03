@@ -1,5 +1,7 @@
-export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/timestamp', {
+export async function getServerSideProps(context) {
+  const { req } = context
+  const host = req.headers.host
+  const res = await fetch(`http://${host}/api/timestamp`, {
     next: { revalidate: 10 }, // Revalidate every 10 seconds
   })
   const data = await res.json()
