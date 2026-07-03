@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 import { CheckIn } from './CheckIn'
 import { ActivityMap } from './ActivityMap'
@@ -13,6 +14,17 @@ interface Activity {
   elevation_gain: number
 }
 
+export interface SpotifyData {
+  isPlaying: boolean
+  trackName: string
+  artistName: string
+  albumName: string
+  albumArt: string
+  trackUrl: string
+  progress: number
+  duration: number
+}
+
 const TYPE_LABELS: Record<string, string> = {
   Run: 'Run',
   Ride: 'Ride',
@@ -20,7 +32,7 @@ const TYPE_LABELS: Record<string, string> = {
   Hike: 'Hike',
 }
 
-export default function BentoGrid({ film, checkInDetails, activity }: {
+export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
   film: {
     image: string | undefined
     uri: string
@@ -34,6 +46,7 @@ export default function BentoGrid({ film, checkInDetails, activity }: {
     location: string
   }
   activity: Activity | null
+  spotify: SpotifyData | null
 }) {
   return (
     <div className="mt-6 grid grid-cols-2 gap-3">
@@ -89,6 +102,46 @@ export default function BentoGrid({ film, checkInDetails, activity }: {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Spotify now-playing — full width */}
+      {spotify && (
+        <a
+          href={spotify.trackUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="col-span-2 flex items-center gap-4 overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] p-4 backdrop-blur-sm transition-colors hover:bg-white/[0.07]"
+        >
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg">
+            <Image
+              src={spotify.albumArt}
+              alt={spotify.albumName}
+              width={56}
+              height={56}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="mb-1 flex items-center gap-1.5">
+              {spotify.isPlaying
+                ? <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#1DB954]" />
+                : <span className="h-1.5 w-1.5 rounded-full bg-white/20" />}
+              <p className="text-[10px] uppercase tracking-widest text-white/30">
+                {spotify.isPlaying ? 'Now Playing' : 'Last Played'}
+              </p>
+            </div>
+            <p className="truncate text-sm font-medium text-white">{spotify.trackName}</p>
+            <p className="truncate text-[13px] text-white/50">{spotify.artistName}</p>
+            {spotify.isPlaying && (
+              <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-white/10">
+                <div
+                  className="h-full rounded-full bg-[#1DB954]"
+                  style={{ width: `${(spotify.progress / spotify.duration) * 100}%` }}
+                />
+              </div>
+            )}
+          </div>
+        </a>
       )}
 
     </div>

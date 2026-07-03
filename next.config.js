@@ -4,7 +4,7 @@ module.exports = ({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['unavatar.io', 'testingcf.jsdelivr.net', 'now-playing-profile-rho.vercel.app'],
+    domains: ['unavatar.io', 'testingcf.jsdelivr.net', 'now-playing-profile-rho.vercel.app', 'i.scdn.co'],
   },
   webpack: (
     config,
