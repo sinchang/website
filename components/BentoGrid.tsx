@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import { CheckIn } from './CheckIn'
 import { ActivityMap } from './ActivityMap'
@@ -91,25 +90,6 @@ export default function BentoGrid({ film, checkInDetails, activity }: {
           </div>
         </div>
       )}
-
-      {/* Spotify now-playing — full width */}
-      <div className="col-span-2 overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm">
-        <a
-          href="https://now-playing-profile-rho.vercel.app/now-playing?open"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src="https://now-playing-profile-rho.vercel.app/now-playing"
-            alt="Now Playing on Spotify"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="h-auto w-full"
-            unoptimized
-          />
-        </a>
-      </div>
 
     </div>
   )
