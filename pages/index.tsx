@@ -4,7 +4,7 @@ import { Avatar } from '../components/avatar'
 import BentoGrid from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
 
-export default function Home({ film, checkInDetails }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({ film, checkInDetails, activity }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="mx-auto w-full max-w-[672px] gap-3 px-3 pb-8 pt-16 md:px-6">
       <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={100} height={100} />
@@ -13,7 +13,7 @@ export default function Home({ film, checkInDetails }: InferGetServerSidePropsTy
         and raised in Cangnan, Wenzhou, now living in Shanghai.
       </div>
       <SocialIcons />
-      <BentoGrid film={film} checkInDetails={checkInDetails}/>
+      <BentoGrid film={film} checkInDetails={checkInDetails} activity={activity} />
       {/* <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
       <div>
         <h1 className='pl-3 text-xl font-bold'>UI</h1>
@@ -34,14 +34,34 @@ export default function Home({ film, checkInDetails }: InferGetServerSidePropsTy
   )
 }
 
+const SUPPORTED_TYPES = ['run', 'ride', 'walk', 'hike']
+
+interface Activity {
+  run_id: number
+  name: string
+  distance: number
+  moving_time: string
+  type: string
+  start_date: string
+  summary_polyline: string
+  elevation_gain: number
+}
+
 export async function getServerSideProps() {
-  // Fetch data from external API
   const items = await letterboxd('sinchang')
-  // Pass data to the page via props
   const item = items?.[0] as Diary
 
-  const checkInRes = await fetch('https://sinchang-checkin.web.val.run')
+  const [checkInRes, activitiesRes] = await Promise.all([
+    fetch('https://sinchang-checkin.web.val.run'),
+    fetch('https://raw.githubusercontent.com/XChangLab/workouts_page/master/src/static/activities.json'),
+  ])
+
   const checkInDetails = await checkInRes.json()
+  const activitiesData: Activity[] = await activitiesRes.json()
+
+  const activity = activitiesData
+    .filter(a => SUPPORTED_TYPES.includes(a.type.toLowerCase()))
+    .sort((a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime())[0] ?? null
 
   return {
     props: {
@@ -51,6 +71,7 @@ export async function getServerSideProps() {
         ratingText: item.rating.text,
       },
       checkInDetails,
+      activity,
     },
   }
 }
