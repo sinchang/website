@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 import { CheckIn } from './CheckIn'
 import { ActivityMap } from './ActivityMap'
@@ -64,25 +65,25 @@ export default function BentoGrid({ film, checkInDetails, activity }: {
         {checkInDetails?.venue
           ? <CheckIn {...checkInDetails} />
           : (
-            <div className="flex h-full items-center justify-center border border-white/[0.06] bg-white/[0.03] rounded-2xl">
+            <div className="flex h-full items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03]">
               <span className="text-sm text-white/25">No recent check-in</span>
             </div>
-          )}
+            )}
       </div>
 
       {/* Activity route map — full width */}
       {activity?.summary_polyline && (
         <div className="relative col-span-2 h-[280px] overflow-hidden rounded-2xl">
           <ActivityMap polyline={activity.summary_polyline} />
-          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-xl bg-black/55 px-4 py-2.5 backdrop-blur-md">
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-xl bg-black/50 px-4 py-2.5 backdrop-blur-md">
             <div className="flex min-w-0 items-center gap-2 text-[13px]">
               <span className="font-semibold text-white">
                 {TYPE_LABELS[activity.type] ?? activity.type}
               </span>
               <span className="text-white/25">·</span>
-              <span className="truncate text-white/55">{activity.name}</span>
+              <span className="truncate text-white/60">{activity.name}</span>
             </div>
-            <div className="ml-4 flex shrink-0 items-center gap-2 text-[13px] text-white/45">
+            <div className="ml-4 flex shrink-0 items-center gap-2 text-[13px] text-white/40">
               <span>{(activity.distance / 1000).toFixed(2)} km</span>
               <span className="text-white/20">·</span>
               <span>{activity.moving_time}</span>
@@ -98,10 +99,14 @@ export default function BentoGrid({ film, checkInDetails, activity }: {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
+          <Image
             src="https://now-playing-profile-rho.vercel.app/now-playing"
             alt="Now Playing on Spotify"
-            className="w-full"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="h-auto w-full"
+            unoptimized
           />
         </a>
       </div>
