@@ -6,30 +6,19 @@ import { SocialIcons } from '../components/SocialIcons'
 
 export default function Home({ film, checkInDetails, activity }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div className="mx-auto w-full max-w-[672px] gap-3 px-3 pb-8 pt-16 md:px-6">
-      <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={100} height={100} />
-      <div className="my-6 text-xl">
-        👋 I'm Jeff, a software engineer. I was born
-        and raised in Cangnan, Wenzhou, now living in Shanghai.
+    <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
+      <div className="flex items-center gap-4">
+        <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={56} height={56} />
+        <div>
+          <h1 className="text-lg font-semibold text-white">Jeff Wen</h1>
+          <p className="text-sm text-white/45">Software Engineer · Shanghai</p>
+        </div>
       </div>
+      <p className="mt-5 text-[15px] leading-relaxed text-white/60">
+        I build for the web. Born in Cangnan, Wenzhou — living and working in Shanghai.
+      </p>
       <SocialIcons />
       <BentoGrid film={film} checkInDetails={checkInDetails} activity={activity} />
-      {/* <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
-      <div>
-        <h1 className='pl-3 text-xl font-bold'>UI</h1>
-        <ul className='mt-3'>
-          {uiSnippets.map(ui => (
-            <li key={ui.url} ><Link href={ui.url} className='block w-[100%] rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800'>{ui.name}</Link></li>
-          ))}
-        </ul>
-      </div>
-      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
-      <div>
-        <h1 className='pl-3 text-xl font-bold'>Projects</h1>
-        <Projects />
-      </div>
-      <div className='my-16 h-0.5 w-full bg-black dark:bg-white'></div>
-      <CheckIn /> */}
     </div>
   )
 }

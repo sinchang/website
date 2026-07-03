@@ -1,10 +1,6 @@
-import { Responsive, WidthProvider } from 'react-grid-layout'
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
+import React from 'react'
 import { CheckIn } from './CheckIn'
 import { ActivityMap } from './ActivityMap'
-
-const ReactGridLayout = WidthProvider(Responsive)
 
 interface Activity {
   run_id: number
@@ -39,53 +35,77 @@ export default function BentoGrid({ film, checkInDetails, activity }: {
   }
   activity: Activity | null
 }) {
-  const layouts = {
-    lg: [
-      { i: 'a', x: 0, y: 0, w: 2, h: 2 },
-      { i: 'b', x: 3, y: 1, w: 2, h: 2 },
-      ...(activity?.summary_polyline ? [{ i: 'c', x: 0, y: 2, w: 4, h: 2 }] : []),
-    ],
-  }
-
   return (
-    <ReactGridLayout
-      layouts={layouts}
-      cols={{ lg: 4, xs: 4, xxs: 1 }}
-      margin={[15, 15]}
-      rowHeight={150}
-      isDraggable={false}
-      isResizable={false}
-    >
-      <div key="a">
-        <CheckIn {...checkInDetails} />
+    <div className="mt-6 grid grid-cols-2 gap-3">
+
+      {/* Film card — left column */}
+      <a
+        href={film?.uri?.replace('sinchang', '')}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative flex h-[220px] flex-col overflow-hidden rounded-2xl bg-[rgb(18,13,30)]"
+      >
+        {film?.image && (
+          <img
+            src={film.image}
+            alt="Now watching"
+            className="absolute inset-0 h-full w-full object-cover opacity-75"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 p-4">
+          <p className="mb-0.5 text-[10px] uppercase tracking-widest text-white/40">Watching</p>
+          <p className="text-sm font-medium text-white">{film?.ratingText}</p>
+        </div>
+      </a>
+
+      {/* Check-in map — right column */}
+      <div className="h-[220px] overflow-hidden rounded-2xl">
+        {checkInDetails?.venue
+          ? <CheckIn {...checkInDetails} />
+          : (
+            <div className="flex h-full items-center justify-center border border-white/[0.06] bg-white/[0.03] rounded-2xl">
+              <span className="text-sm text-white/25">No recent check-in</span>
+            </div>
+          )}
       </div>
-      <div key="b" className="relative h-full max-w-[624px] overflow-hidden rounded-3xl border p-6 shadow-md" style={{
-        backgroundColor: 'rgb(29, 24, 44)',
-        borderColor: 'rgb(64, 58, 85)',
-      }}>
-        <a href={film?.uri?.replace('sinchang', '')} target="_blank">
-          <div className='flex h-full w-full flex-col items-center justify-between gap-4'>
-            <img src={film?.image} className="h-4/5" />
-            <div>{film?.ratingText}</div>
-          </div>
-        </a>
-      </div>
+
+      {/* Activity route map — full width */}
       {activity?.summary_polyline && (
-        <div key="c" className="relative h-full w-full overflow-hidden rounded-3xl">
+        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-2xl">
           <ActivityMap polyline={activity.summary_polyline} />
-          <div className='absolute bottom-2 left-[50%] z-10 translate-x-[-50%] whitespace-nowrap rounded-[8px] bg-white/70 px-3 py-1.5 text-[14px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06)] backdrop-blur-[20px]'>
-            <div className='flex items-center gap-2 text-black'>
-              <span className='font-medium'>{TYPE_LABELS[activity.type] ?? activity.type}</span>
-              <span className='text-gray-400'>·</span>
-              <span className='line-clamp-1 max-w-[180px]'>{activity.name}</span>
-              <span className='text-gray-400'>·</span>
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-xl bg-black/55 px-4 py-2.5 backdrop-blur-md">
+            <div className="flex min-w-0 items-center gap-2 text-[13px]">
+              <span className="font-semibold text-white">
+                {TYPE_LABELS[activity.type] ?? activity.type}
+              </span>
+              <span className="text-white/25">·</span>
+              <span className="truncate text-white/55">{activity.name}</span>
+            </div>
+            <div className="ml-4 flex shrink-0 items-center gap-2 text-[13px] text-white/45">
               <span>{(activity.distance / 1000).toFixed(2)} km</span>
-              <span className='text-gray-400'>·</span>
+              <span className="text-white/20">·</span>
               <span>{activity.moving_time}</span>
             </div>
           </div>
         </div>
       )}
-    </ReactGridLayout>
+
+      {/* Spotify now-playing — full width */}
+      <div className="col-span-2 overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm">
+        <a
+          href="https://now-playing-profile-rho.vercel.app/now-playing?open"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://now-playing-profile-rho.vercel.app/now-playing"
+            alt="Now Playing on Spotify"
+            className="w-full"
+          />
+        </a>
+      </div>
+
+    </div>
   )
 }
