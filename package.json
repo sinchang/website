@@ -20,7 +20,7 @@
     "browserify-fs": "^1.0.0",
     "country-code-to-flag-emoji": "^1.3.3",
     "crypto-browserify": "^3.12.0",
-    "drizzle-orm": "^0.39.3",
+    "drizzle-orm": "^0.45.2",
     "jotai": "^2.0.4",
     "letterboxd-api": "^1.0.2",
     "mapbox-gl": "^3.5.1",
