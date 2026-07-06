@@ -11,7 +11,7 @@ export default function Home({ film, checkInDetails, activity, spotify }: InferG
         <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={56} height={56} />
         <div>
           <h1 className="text-lg font-semibold text-white">Jeff Wen</h1>
-          <p className="text-sm text-white/45">Software Engineer · Shanghai</p>
+          <p className="text-white/45 text-sm">Software Engineer · Shanghai</p>
         </div>
       </div>
       <p className="mt-5 text-[15px] leading-relaxed text-white/60">
@@ -56,7 +56,7 @@ export async function getServerSideProps() {
   let spotify: SpotifyData | null = null
   if (spotifyRes.ok) {
     const spotifyJson = await spotifyRes.json()
-    if (spotifyJson?.item) {
+    if (spotifyJson?.item && Object.keys(spotifyJson.item).length > 0) {
       spotify = {
         isPlaying: spotifyJson.isPlaying ?? false,
         trackName: spotifyJson.item.name,
