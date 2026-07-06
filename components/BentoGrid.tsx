@@ -51,52 +51,58 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
   return (
     <div className="mt-6 grid grid-cols-2 gap-3">
 
-      {/* Film card — left column */}
+      {/* Film card */}
       <a
         href={film?.uri?.replace('sinchang', '')}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative flex h-[220px] flex-col overflow-hidden rounded-2xl bg-[rgb(18,13,30)]"
+        className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-[rgb(18,13,30)]"
       >
         {film?.image && (
           <img
             src={film.image}
             alt="Now watching"
-            className="absolute inset-0 h-full w-full object-cover opacity-75"
+            className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <p className="mb-0.5 text-[10px] uppercase tracking-widest text-white/40">Watching</p>
-          <p className="text-sm font-medium text-white">{film?.ratingText}</p>
+          <p className="mb-1 text-[10px] uppercase tracking-widest text-white/35">Watching</p>
+          <p className="text-sm font-semibold text-white">{film?.ratingText}</p>
         </div>
       </a>
 
-      {/* Check-in map — right column */}
-      <div className="h-[220px] overflow-hidden rounded-2xl">
+      {/* Check-in map */}
+      <div className="h-[240px] overflow-hidden rounded-3xl border border-white/[0.08]">
         {checkInDetails?.venue
           ? <CheckIn {...checkInDetails} />
           : (
-            <div className="flex h-full items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03]">
+            <div className="flex h-full items-center justify-center rounded-3xl border border-white/[0.12] bg-white/[0.04]">
               <span className="text-sm text-white/25">No recent check-in</span>
             </div>
             )}
       </div>
 
-      {/* Activity route map — full width */}
+      {/* Activity route map */}
       {activity?.summary_polyline && (
-        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-2xl">
+        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-3xl border border-white/[0.08]">
           <ActivityMap polyline={activity.summary_polyline} />
-          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-xl bg-black/50 px-4 py-2.5 backdrop-blur-md">
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-2xl bg-black/60 px-4 py-3 backdrop-blur-md">
             <div className="flex min-w-0 items-center gap-2 text-[13px]">
               <span className="font-semibold text-white">
                 {TYPE_LABELS[activity.type] ?? activity.type}
               </span>
-              <span className="text-white/25">·</span>
+              <span className="text-white/20">·</span>
               <span className="truncate text-white/60">{activity.name}</span>
             </div>
-            <div className="ml-4 flex shrink-0 items-center gap-2 text-[13px] text-white/40">
+            <div className="ml-4 flex shrink-0 items-center gap-3 text-[13px] text-white/40">
               <span>{(activity.distance / 1000).toFixed(2)} km</span>
+              {activity.elevation_gain > 0 && (
+                <>
+                  <span className="text-white/20">·</span>
+                  <span>↑ {Math.round(activity.elevation_gain)} m</span>
+                </>
+              )}
               <span className="text-white/20">·</span>
               <span>{activity.moving_time}</span>
             </div>
@@ -104,25 +110,25 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
         </div>
       )}
 
-      {/* Spotify now-playing — full width */}
+      {/* Spotify now-playing */}
       {spotify && (
         <a
           href={spotify.trackUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="col-span-2 flex items-center gap-4 overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] p-4 backdrop-blur-sm transition-colors hover:bg-white/[0.07]"
+          className="col-span-2 flex items-center gap-4 overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.06] p-4 backdrop-blur-sm transition-colors hover:bg-white/[0.10]"
         >
-          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg">
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl shadow-lg">
             <Image
               src={spotify.albumArt}
               alt={spotify.albumName}
-              width={56}
-              height={56}
+              width={64}
+              height={64}
               className="h-full w-full object-cover"
             />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="mb-1 flex items-center gap-1.5">
+            <div className="mb-1.5 flex items-center gap-1.5">
               {spotify.isPlaying
                 ? <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#1DB954]" />
                 : <span className="h-1.5 w-1.5 rounded-full bg-white/20" />}
@@ -130,8 +136,9 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
                 {spotify.isPlaying ? 'Now Playing' : 'Last Played'}
               </p>
             </div>
-            <p className="truncate text-sm font-medium text-white">{spotify.trackName}</p>
+            <p className="truncate text-sm font-semibold text-white">{spotify.trackName}</p>
             <p className="truncate text-[13px] text-white/50">{spotify.artistName}</p>
+            <p className="truncate text-[12px] text-white/25">{spotify.albumName}</p>
             {spotify.isPlaying && (
               <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-white/10">
                 <div

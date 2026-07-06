@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         sys: {
           bg: {
-            base: 'hsl(255.48deg 30.099999999999998% 20.200000000000003% / <alpha-value>)',
+            base: 'hsl(255 12% 13% / <alpha-value>)',
           },
         },
       },

@@ -8,13 +8,13 @@ export default function Home({ film, checkInDetails, activity, spotify }: InferG
   return (
     <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
       <div className="flex items-center gap-4">
-        <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={56} height={56} />
+        <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={64} height={64} className="ring-2 ring-white/10" />
         <div>
           <h1 className="text-lg font-semibold text-white">Jeff Wen</h1>
-          <p className="text-white/45 text-sm">Software Engineer · Shanghai</p>
+          <p className="text-sm text-white/40">Software Engineer · Shanghai</p>
         </div>
       </div>
-      <p className="mt-5 text-[15px] leading-relaxed text-white/60">
+      <p className="mt-5 text-base leading-relaxed text-white/60">
         I build for the web. Born in Cangnan, Wenzhou — living and working in Shanghai.
       </p>
       <SocialIcons />
