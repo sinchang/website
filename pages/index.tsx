@@ -1,3 +1,5 @@
+import path from 'node:path'
+import process from 'node:process'
 import letterboxd, { type Diary } from 'letterboxd-api'
 import type { InferGetServerSidePropsType } from 'next'
 import { Avatar } from '../components/avatar'
@@ -48,7 +50,9 @@ async function fetchCheckinMarkers(): Promise<CheckinData> {
       return { markers: [], countryCount: 0 }
     const buffer = await res.arrayBuffer()
     const initSqlJs = (await import('sql.js')).default
-    const SQL = await initSqlJs()
+    const SQL = await initSqlJs({
+      locateFile: file => path.resolve(process.cwd(), 'public', file),
+    })
     const db = new SQL.Database(new Uint8Array(buffer))
 
     const tables = db.exec('SELECT name FROM sqlite_master WHERE type=\'table\'')
