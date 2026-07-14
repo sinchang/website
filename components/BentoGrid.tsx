@@ -59,12 +59,12 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
   return (
     <div className="mt-6 grid grid-cols-2 gap-3">
 
-      {/* Film card */}
+      {/* Film card — always dark since it's a poster with a gradient overlay */}
       <a
         href={film?.uri?.replace('sinchang', '')}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-[rgb(18,13,30)]"
+        className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
       >
         {film?.image && (
           <img
@@ -75,43 +75,43 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <p className="mb-1 text-[10px] uppercase tracking-widest text-white/35">Watching</p>
+          <p className="mb-1 text-[10px] uppercase tracking-widest text-white/[0.35]">Watching</p>
           <p className="text-sm font-semibold text-white">{film?.ratingText}</p>
         </div>
       </a>
 
       {/* Check-in map */}
-      <div className="h-[240px] overflow-hidden rounded-3xl border border-white/[0.08]">
+      <div className="h-[240px] overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
         {checkInDetails?.venue
           ? <CheckIn {...checkInDetails} />
           : (
-            <div className="flex h-full items-center justify-center rounded-3xl border border-white/[0.12] bg-white/[0.04]">
-              <span className="text-sm text-white/25">No recent check-in</span>
+            <div className="flex h-full items-center justify-center rounded-3xl bg-gray-50 dark:bg-white/[0.04]">
+              <span className="text-sm text-gray-400 dark:text-white/25">No recent check-in</span>
             </div>
             )}
       </div>
 
       {/* Activity route map */}
       {activity?.summary_polyline && (
-        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-3xl border border-white/[0.08]">
+        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
           <ActivityMap polyline={activity.summary_polyline} />
-          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-2xl bg-black/60 px-4 py-3 backdrop-blur-md">
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-2xl bg-white/90 px-4 py-3 backdrop-blur-md dark:bg-black/60">
             <div className="flex min-w-0 items-center gap-2 text-[13px]">
-              <span className="font-semibold text-white">
+              <span className="font-semibold text-gray-900 dark:text-white">
                 {TYPE_LABELS[activity.type] ?? activity.type}
               </span>
-              <span className="text-white/20">·</span>
-              <span className="truncate text-white/60">{activity.name}</span>
+              <span className="text-gray-300 dark:text-white/20">·</span>
+              <span className="truncate text-gray-500 dark:text-white/60">{activity.name}</span>
             </div>
-            <div className="ml-4 flex shrink-0 items-center gap-3 text-[13px] text-white/40">
+            <div className="ml-4 flex shrink-0 items-center gap-3 text-[13px] text-gray-400 dark:text-white/40">
               <span>{(activity.distance / 1000).toFixed(2)} km</span>
               {activity.elevation_gain > 0 && (
                 <>
-                  <span className="text-white/20">·</span>
+                  <span className="text-gray-300 dark:text-white/20">·</span>
                   <span>↑ {Math.round(activity.elevation_gain)} m</span>
                 </>
               )}
-              <span className="text-white/20">·</span>
+              <span className="text-gray-300 dark:text-white/20">·</span>
               <span>{activity.moving_time}</span>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
           href={spotify.trackUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="col-span-2 flex items-center gap-4 overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.06] p-4 backdrop-blur-sm transition-colors hover:bg-white/[0.10]"
+          className="col-span-2 flex items-center gap-4 overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-50 p-4 transition-colors hover:bg-gray-100 dark:border-white/[0.12] dark:bg-white/[0.06] dark:hover:bg-white/[0.10]"
         >
           <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl shadow-lg">
             <Image
@@ -144,16 +144,16 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
             <div className="mb-1.5 flex items-center gap-1.5">
               {spotify.isPlaying
                 ? <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#1DB954]" />
-                : <span className="h-1.5 w-1.5 rounded-full bg-white/20" />}
-              <p className="text-[10px] uppercase tracking-widest text-white/30">
+                : <span className="h-1.5 w-1.5 rounded-full bg-gray-300 dark:bg-white/20" />}
+              <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-white/30">
                 {spotify.isPlaying ? 'Now Playing' : 'Last Played'}
               </p>
             </div>
-            <p className="truncate text-sm font-semibold text-white">{spotify.trackName}</p>
-            <p className="truncate text-[13px] text-white/50">{spotify.artistName}</p>
-            <p className="truncate text-[12px] text-white/25">{spotify.albumName}</p>
+            <p className="truncate text-sm font-semibold text-gray-900 dark:text-white">{spotify.trackName}</p>
+            <p className="truncate text-[13px] text-gray-500 dark:text-white/50">{spotify.artistName}</p>
+            <p className="truncate text-[12px] text-gray-400 dark:text-white/25">{spotify.albumName}</p>
             {spotify.isPlaying && (
-              <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-white/10">
+              <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
                 <div
                   className="h-full rounded-full bg-[#1DB954]"
                   style={{ width: `${(spotify.progress / spotify.duration) * 100}%` }}

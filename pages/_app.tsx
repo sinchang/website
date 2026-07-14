@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               data-website-id="a22d725d-fab9-46ed-9fdc-00b595b9d3d1"
               strategy='afterInteractive'
             />
-            <main className={`${spaceGrotesk.variable} min-h-screen bg-sys-bg-base font-sans`}>
+            <main className={`${spaceGrotesk.variable} min-h-screen bg-white font-sans dark:bg-sys-bg-base`}>
               <Component {...pageProps} />
             </main>
           </ThemeProvider>

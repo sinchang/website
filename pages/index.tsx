@@ -5,18 +5,22 @@ import type { InferGetServerSidePropsType } from 'next'
 import { Avatar } from '../components/avatar'
 import BentoGrid, { type SpotifyData } from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
+import { ToggleTheme } from '../components/ToggleTheme'
 
 export default function Home({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
       <div className="flex items-center gap-4">
-        <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={64} height={64} className="ring-2 ring-white/10" />
+        <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={64} height={64} className="ring-2 ring-black/10 dark:ring-white/10" />
         <div>
-          <h1 className="text-lg font-semibold text-white">Jeff Wen</h1>
-          <p className="text-sm text-white/40">Software Engineer · Shanghai</p>
+          <h1 className="text-lg font-semibold text-gray-900 dark:text-white">Jeff Wen</h1>
+          <p className="text-sm text-gray-500 dark:text-white/40">Software Engineer · Shanghai</p>
+        </div>
+        <div className="ml-auto">
+          <ToggleTheme />
         </div>
       </div>
-      <p className="mt-5 text-base leading-relaxed text-white/60">
+      <p className="mt-5 text-base leading-relaxed text-gray-600 dark:text-white/60">
         I build for the web. Born in Cangnan, Wenzhou — living and working in Shanghai.
       </p>
       <SocialIcons />
