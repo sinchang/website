@@ -4,7 +4,7 @@ import { Avatar } from '../components/avatar'
 import BentoGrid, { type SpotifyData } from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
 
-export default function Home({ film, checkInDetails, activity, spotify }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
       <div className="flex items-center gap-4">
@@ -18,7 +18,7 @@ export default function Home({ film, checkInDetails, activity, spotify }: InferG
         I build for the web. Born in Cangnan, Wenzhou — living and working in Shanghai.
       </p>
       <SocialIcons />
-      <BentoGrid film={film} checkInDetails={checkInDetails} activity={activity} spotify={spotify} />
+      <BentoGrid film={film} checkInDetails={checkInDetails} activity={activity} spotify={spotify} checkinMarkers={checkinMarkers} checkinCountryCount={checkinCountryCount} />
     </div>
   )
 }
@@ -36,14 +36,61 @@ interface Activity {
   elevation_gain: number
 }
 
+interface CheckinData {
+  markers: [number, number][]
+  countryCount: number
+}
+
+async function fetchCheckinMarkers(): Promise<CheckinData> {
+  try {
+    const res = await fetch('https://my-swarm.fly.dev/checkins.db')
+    if (!res.ok)
+      return { markers: [], countryCount: 0 }
+    const buffer = await res.arrayBuffer()
+    const initSqlJs = (await import('sql.js')).default
+    const SQL = await initSqlJs()
+    const db = new SQL.Database(new Uint8Array(buffer))
+
+    const tables = db.exec('SELECT name FROM sqlite_master WHERE type=\'table\'')
+    const tableName = tables[0]?.values?.[0]?.[0] as string | undefined
+    if (!tableName) { db.close(); return { markers: [], countryCount: 0 } }
+
+    const schemaResult = db.exec(`PRAGMA table_info(${tableName})`)
+    const columns = (schemaResult[0]?.values ?? []).map(row => row[1] as string)
+
+    const latCol = columns.find(c => /^lat/i.test(c))
+    const lngCol = columns.find(c => /^l(ng|on)/i.test(c))
+    if (!latCol || !lngCol) { db.close(); return { markers: [], countryCount: 0 } }
+
+    const ccCol = columns.find(c => /^(cc|country)/i.test(c))
+
+    const result = db.exec(
+      `SELECT ${latCol}, ${lngCol}${ccCol ? `, ${ccCol}` : ''} FROM ${tableName} WHERE ${latCol} IS NOT NULL AND ${lngCol} IS NOT NULL`,
+    )
+    db.close()
+
+    const rows = result[0]?.values ?? []
+    const markers = rows.map(row => [Number(row[0]), Number(row[1])]) as [number, number][]
+    const countryCount = ccCol
+      ? new Set(rows.map(row => row[2]).filter(Boolean)).size
+      : 0
+
+    return { markers, countryCount }
+  }
+  catch {
+    return { markers: [], countryCount: 0 }
+  }
+}
+
 export async function getServerSideProps() {
   const items = await letterboxd('sinchang')
   const item = items?.[0] as Diary
 
-  const [checkInRes, activitiesRes, spotifyRes] = await Promise.all([
+  const [checkInRes, activitiesRes, spotifyRes, checkinData] = await Promise.all([
     fetch('https://sinchang-checkin.web.val.run'),
     fetch('https://raw.githubusercontent.com/XChangLab/workouts_page/master/src/static/activities.json'),
     fetch('https://now-playing-profile-rho.vercel.app/now-playing?json'),
+    fetchCheckinMarkers(),
   ])
 
   const checkInDetails = await checkInRes.json()
@@ -80,6 +127,8 @@ export async function getServerSideProps() {
       checkInDetails,
       activity,
       spotify,
+      checkinMarkers: checkinData.markers,
+      checkinCountryCount: checkinData.countryCount,
     },
   }
 }

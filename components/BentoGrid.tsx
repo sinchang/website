@@ -1,7 +1,13 @@
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import React from 'react'
 import { CheckIn } from './CheckIn'
 import { ActivityMap } from './ActivityMap'
+
+const CheckinsGlobe = dynamic(
+  () => import('./CheckinsGlobe').then(m => m.CheckinsGlobe),
+  { ssr: false },
+)
 
 interface Activity {
   run_id: number
@@ -32,7 +38,7 @@ const TYPE_LABELS: Record<string, string> = {
   Hike: 'Hike',
 }
 
-export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
+export default function BentoGrid({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: {
   film: {
     image: string | undefined
     uri: string
@@ -47,6 +53,8 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
   }
   activity: Activity | null
   spotify: SpotifyData | null
+  checkinMarkers: [number, number][]
+  checkinCountryCount: number
 }) {
   return (
     <div className="mt-6 grid grid-cols-2 gap-3">
@@ -108,6 +116,11 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify }: {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Checkins globe */}
+      {checkinMarkers.length > 0 && (
+        <CheckinsGlobe markers={checkinMarkers} count={checkinMarkers.length} countryCount={checkinCountryCount} />
       )}
 
       {/* Spotify now-playing */}
