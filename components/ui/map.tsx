@@ -58,11 +58,17 @@ export function Map({ center = [0, 0], zoom = 2, className, children }: MapProps
 
     map.on('load', () => setCtx({ map, isLoaded: true }))
 
-    // Sync map style when theme class/attribute changes on <html>
+    // On theme change: unmount children so their cleanup removes old layers,
+    // then remount once the new style is fully settled.
+    let activeStyleUrl = getMapStyle()
     const observer = new MutationObserver(() => {
       const next = getMapStyle()
-      if ((map.getStyle() as any)?.sprite !== next)
-        map.setStyle(next)
+      if (activeStyleUrl === next)
+        return
+      activeStyleUrl = next
+      setCtx({ map, isLoaded: false })
+      map.setStyle(next)
+      map.once('idle', () => setCtx({ map, isLoaded: true }))
     })
     observer.observe(document.documentElement, {
       attributes: true,
