@@ -57,7 +57,21 @@ pages/index.tsx
 
 ### MapLibre map tile theming
 
-`components/ui/map.tsx` uses a `MutationObserver` on `<html>` to watch for `class` / `data-theme` attribute changes and swaps between Carto Voyager (light) and Carto Dark Matter (dark) tile styles automatically. No manual intervention needed when toggling theme.
+`components/ui/map.tsx` uses a `MutationObserver` on `<html>` to watch for `class` / `data-theme` attribute changes and swaps between Carto Voyager (light) and Carto Dark Matter (dark) tile styles.
+
+`map.setStyle()` wipes **all** custom sources and layers. To preserve them across theme switches, the observer toggles `isLoaded` around the style swap:
+
+```ts
+setCtx({ map, isLoaded: false })   // unmounts children → cleanup removes their layers
+map.setStyle(next)
+map.once('idle', () => setCtx({ map, isLoaded: true }))  // remounts children → effects re-add layers
+```
+
+`idle` fires 100–500 ms after `setStyle` (after the style is fully settled), which is well after React's passive cleanup effects have run (~5 ms). This guarantees children remount into a ready map.
+
+**Do not use these alternatives** — both were tried and fail:
+- `style.load` event — fires before sprites are loaded in MapLibre v4.7.1; event propagation from the replaced Style object is unreliable
+- `flushSync` to force `isLoaded: false` — React 18 schedules `useEffect` cleanups asynchronously; `setStyle` runs before cleanups complete, so layers are already wiped when cleanup tries to remove them
 
 ### Dark / light mode
 
