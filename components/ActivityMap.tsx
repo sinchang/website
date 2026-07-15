@@ -13,7 +13,7 @@ function decodePolyline(encoded: string): [number, number][] {
     let result = 0
     do {
       b = encoded.charCodeAt(index++) - 63
-      result |= (b & 0x1f) << shift
+      result |= (b & 0x1F) << shift
       shift += 5
     } while (b >= 0x20)
     lat += result & 1 ? ~(result >> 1) : result >> 1
@@ -22,7 +22,7 @@ function decodePolyline(encoded: string): [number, number][] {
     result = 0
     do {
       b = encoded.charCodeAt(index++) - 63
-      result |= (b & 0x1f) << shift
+      result |= (b & 0x1F) << shift
       shift += 5
     } while (b >= 0x20)
     lng += result & 1 ? ~(result >> 1) : result >> 1

@@ -61,14 +61,20 @@ async function fetchCheckinMarkers(): Promise<CheckinData> {
 
     const tables = db.exec('SELECT name FROM sqlite_master WHERE type=\'table\'')
     const tableName = tables[0]?.values?.[0]?.[0] as string | undefined
-    if (!tableName) { db.close(); return { markers: [], countryCount: 0 } }
+    if (!tableName) {
+      db.close()
+      return { markers: [], countryCount: 0 }
+    }
 
     const schemaResult = db.exec(`PRAGMA table_info(${tableName})`)
     const columns = (schemaResult[0]?.values ?? []).map(row => row[1] as string)
 
     const latCol = columns.find(c => /^lat/i.test(c))
     const lngCol = columns.find(c => /^l(ng|on)/i.test(c))
-    if (!latCol || !lngCol) { db.close(); return { markers: [], countryCount: 0 } }
+    if (!latCol || !lngCol) {
+      db.close()
+      return { markers: [], countryCount: 0 }
+    }
 
     const ccCol = columns.find(c => /^(cc|country)/i.test(c))
 
