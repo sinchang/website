@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const PHOTOS = [
   {
@@ -76,7 +77,55 @@ const PHOTOS = [
   },
 ]
 
+type Photo = typeof PHOTOS[number]
+
+function Lightbox({ photo, onClose }: { photo: Photo; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape')
+        onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl"
+        onClick={e => e.stopPropagation()}
+      >
+        <img
+          src={photo.src.replace('/800/600', '/1600/1200').replace('/800/500', '/1600/1000').replace('/600/600', '/1200/1200')}
+          alt={photo.caption}
+          className="max-h-[85vh] max-w-[85vw] object-contain"
+        />
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+          <p className="text-sm font-medium text-white">{photo.caption}</p>
+          <div className="mt-1 flex items-center gap-2 text-[12px] text-white/60">
+            <span className="i-ri-map-pin-line h-3 w-3" />
+            <span>{photo.location}</span>
+            <span>·</span>
+            <span>{photo.date}</span>
+          </div>
+        </div>
+        <button
+          onClick={onClose}
+          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white/80 transition-colors hover:bg-black/70"
+        >
+          <span className="i-ri-close-line h-4 w-4" />
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function Photos() {
+  const [selected, setSelected] = useState<Photo | null>(null)
+
   return (
     <>
       <Head>
@@ -97,7 +146,8 @@ export default function Photos() {
           {PHOTOS.map(photo => (
             <div
               key={photo.id}
-              className={`group relative overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-white/[0.04] ${photo.wide ? 'col-span-2 h-[280px]' : 'h-[220px]'}`}
+              onClick={() => setSelected(photo)}
+              className={`group relative cursor-pointer overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-white/[0.04] ${photo.wide ? 'col-span-2 h-[280px]' : 'h-[220px]'}`}
             >
               <img
                 src={photo.src}
@@ -118,6 +168,8 @@ export default function Photos() {
           ))}
         </div>
       </div>
+
+      {selected && <Lightbox photo={selected} onClose={() => setSelected(null)} />}
     </>
   )
 }
