@@ -123,10 +123,13 @@ export function MapRoute({ coordinates, color = '#4285F4', width = 3, opacity = 
     })
 
     return () => {
-      if (map.getLayer(id))
-        map.removeLayer(id)
-      if (map.getSource(id))
-        map.removeSource(id)
+      try {
+        if (map.getLayer(id))
+          map.removeLayer(id)
+        if (map.getSource(id))
+          map.removeSource(id)
+      }
+      catch {}
     }
   }, [map, isLoaded])
 

@@ -67,12 +67,15 @@ function PulsingDot({ longitude, latitude }: { longitude: number; latitude: numb
     })
 
     return () => {
-      if (map.getLayer('pulsing-dot-layer'))
-        map.removeLayer('pulsing-dot-layer')
-      if (map.getSource('dot-point'))
-        map.removeSource('dot-point')
-      if (map.hasImage('pulsing-dot'))
-        map.removeImage('pulsing-dot')
+      try {
+        if (map.getLayer('pulsing-dot-layer'))
+          map.removeLayer('pulsing-dot-layer')
+        if (map.getSource('dot-point'))
+          map.removeSource('dot-point')
+        if (map.hasImage('pulsing-dot'))
+          map.removeImage('pulsing-dot')
+      }
+      catch {}
     }
   }, [map, isLoaded])
 

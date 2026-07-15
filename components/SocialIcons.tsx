@@ -17,6 +17,13 @@ export function SocialIcons() {
       >
         <span className="i-ri-mail-fill h-full w-full" />
       </a>
+      {/* <Link
+        href="/photos"
+        title="Photos"
+        className="h-5 w-5 text-gray-400 transition-colors hover:text-gray-700 dark:text-white/40 dark:hover:text-white/80"
+      >
+        <span className="i-ri-camera-line h-full w-full" />
+      </Link> */}
     </div>
   )
 }

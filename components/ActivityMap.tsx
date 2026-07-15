@@ -73,14 +73,17 @@ function ActivityOverlay({ coords }: { coords: [number, number][] }) {
     })
 
     return () => {
-      if (map.getLayer('activity-start'))
-        map.removeLayer('activity-start')
-      if (map.getSource('activity-start'))
-        map.removeSource('activity-start')
-      if (map.getLayer('activity-end'))
-        map.removeLayer('activity-end')
-      if (map.getSource('activity-end'))
-        map.removeSource('activity-end')
+      try {
+        if (map.getLayer('activity-start'))
+          map.removeLayer('activity-start')
+        if (map.getSource('activity-start'))
+          map.removeSource('activity-start')
+        if (map.getLayer('activity-end'))
+          map.removeLayer('activity-end')
+        if (map.getSource('activity-end'))
+          map.removeSource('activity-end')
+      }
+      catch {}
     }
   }, [map, isLoaded, coords])
 
