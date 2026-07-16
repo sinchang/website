@@ -1,13 +1,13 @@
 import path from 'node:path'
 import process from 'node:process'
 import letterboxd, { type Diary } from 'letterboxd-api'
-import type { InferGetServerSidePropsType } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import { Avatar } from '../components/avatar'
 import BentoGrid, { type SpotifyData } from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
 import { ToggleTheme } from '../components/ToggleTheme'
 
-export default function Home({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
       <div className="flex items-center gap-4">
@@ -96,7 +96,7 @@ async function fetchCheckinMarkers(): Promise<CheckinData> {
   }
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const items = await letterboxd('sinchang')
   const item = items?.[0] as Diary
 
@@ -144,5 +144,6 @@ export async function getServerSideProps() {
       checkinMarkers: checkinData.markers,
       checkinCountryCount: checkinData.countryCount,
     },
+    revalidate: 60,
   }
 }
