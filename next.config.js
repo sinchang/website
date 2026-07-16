@@ -4,7 +4,12 @@ module.exports = ({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['unavatar.io', 'testingcf.jsdelivr.net', 'now-playing-profile-rho.vercel.app', 'i.scdn.co'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'unavatar.io' },
+      { protocol: 'https', hostname: 'testingcf.jsdelivr.net' },
+      { protocol: 'https', hostname: 'now-playing-profile-rho.vercel.app' },
+      { protocol: 'https', hostname: 'i.scdn.co' },
+    ],
   },
   webpack: (
     config,
