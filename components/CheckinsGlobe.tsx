@@ -1,4 +1,5 @@
-import createGlobe, { type Globe } from 'cobe'
+import type { Globe } from 'cobe'
+import createGlobe from 'cobe'
 import { useTheme } from 'next-themes'
 import { useEffect, useRef } from 'react'
 

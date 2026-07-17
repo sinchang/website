@@ -1,9 +1,11 @@
+import type { Diary } from 'letterboxd-api'
+import type { InferGetStaticPropsType } from 'next'
+import type { SpotifyData } from '../components/BentoGrid'
 import path from 'node:path'
 import process from 'node:process'
-import letterboxd, { type Diary } from 'letterboxd-api'
-import type { InferGetStaticPropsType } from 'next'
+import letterboxd from 'letterboxd-api'
 import { Avatar } from '../components/avatar'
-import BentoGrid, { type SpotifyData } from '../components/BentoGrid'
+import BentoGrid from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
 import { ToggleTheme } from '../components/ToggleTheme'
 
@@ -70,13 +72,13 @@ async function fetchCheckinMarkers(): Promise<CheckinData> {
     const columns = (schemaResult[0]?.values ?? []).map(row => row[1] as string)
 
     const latCol = columns.find(c => /^lat/i.test(c))
-    const lngCol = columns.find(c => /^l(ng|on)/i.test(c))
+    const lngCol = columns.find(c => /^l(?:ng|on)/i.test(c))
     if (!latCol || !lngCol) {
       db.close()
       return { markers: [], countryCount: 0 }
     }
 
-    const ccCol = columns.find(c => /^(cc|country)/i.test(c))
+    const ccCol = columns.find(c => /^(?:cc|country)/i.test(c))
 
     const result = db.exec(
       `SELECT ${latCol}, ${lngCol}${ccCol ? `, ${ccCol}` : ''} FROM ${tableName} WHERE ${latCol} IS NOT NULL AND ${lngCol} IS NOT NULL`,

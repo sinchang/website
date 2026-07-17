@@ -21,10 +21,10 @@ export function ToggleTheme() {
     <button type="button" onClick={handleSetTheme} className="h-5 w-5 transition-colors">
       {theme === 'light'
         ? (
-          <span className="i-ri-moon-line h-full w-full text-gray-400 hover:text-gray-700" />
+            <span className="i-ri-moon-line h-full w-full text-gray-400 hover:text-gray-700" />
           )
         : (
-          <span className="i-ri-sun-line h-full w-full text-white/40 hover:text-white/80" />
+            <span className="i-ri-sun-line h-full w-full text-white/40 hover:text-white/80" />
           )}
     </button>
   )

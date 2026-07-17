@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Map, useMap } from './ui/map'
 
-function PulsingDot({ longitude, latitude }: { longitude: number; latitude: number }) {
+function PulsingDot({ longitude, latitude }: { longitude: number, latitude: number }) {
   const { map, isLoaded } = useMap()
 
   useEffect(() => {
@@ -82,7 +82,7 @@ function PulsingDot({ longitude, latitude }: { longitude: number; latitude: numb
   return null
 }
 
-export function MapCard({ latitude, longitude, location }: { latitude: number; longitude: number; location: string }) {
+export function MapCard({ latitude, longitude, location }: { latitude: number, longitude: number, location: string }) {
   return (
     <Map center={[longitude, latitude]} zoom={12} className="relative h-full w-full">
       <PulsingDot longitude={longitude} latitude={latitude} />

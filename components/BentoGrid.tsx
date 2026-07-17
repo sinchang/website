@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import React from 'react'
-import { CheckIn } from './CheckIn'
 import { ActivityMap } from './ActivityMap'
+import { CheckIn } from './CheckIn'
 
 const CheckinsGlobe = dynamic(
   () => import('./CheckinsGlobe').then(m => m.CheckinsGlobe),
@@ -62,30 +62,30 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
       {/* Film card — always dark since it's a poster with a gradient overlay */}
       {film
         ? (
-          <a
-            href={film.uri?.replace('sinchang', '')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
-          >
-            {film.image && (
-              <img
-                src={film.image}
-                alt="Now watching"
-                className="absolute inset-0 h-full w-full object-cover opacity-80"
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-4">
-              <p className="mb-1 text-[10px] uppercase tracking-widest text-white/[0.35]">Watching</p>
-              <p className="text-sm font-semibold text-white">{film.ratingText}</p>
-            </div>
-          </a>
+            <a
+              href={film.uri?.replace('sinchang', '')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
+            >
+              {film.image && (
+                <img
+                  src={film.image}
+                  alt="Now watching"
+                  className="absolute inset-0 h-full w-full object-cover opacity-80"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <p className="mb-1 text-[10px] uppercase tracking-widest text-white/[0.35]">Watching</p>
+                <p className="text-sm font-semibold text-white">{film.ratingText}</p>
+              </div>
+            </a>
           )
         : (
-          <div className="flex h-[240px] items-center justify-center rounded-3xl border border-black/[0.08] bg-gray-50 dark:border-white/[0.08] dark:bg-white/[0.04]">
-            <span className="text-sm text-gray-400 dark:text-white/25">No recent film</span>
-          </div>
+            <div className="flex h-[240px] items-center justify-center rounded-3xl border border-black/[0.08] bg-gray-50 dark:border-white/[0.08] dark:bg-white/[0.04]">
+              <span className="text-sm text-gray-400 dark:text-white/25">No recent film</span>
+            </div>
           )}
 
       {/* Check-in map */}
@@ -93,9 +93,9 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
         {checkInDetails?.venue
           ? <CheckIn {...checkInDetails} />
           : (
-            <div className="flex h-full items-center justify-center rounded-3xl bg-gray-50 dark:bg-white/[0.04]">
-              <span className="text-sm text-gray-400 dark:text-white/25">No recent check-in</span>
-            </div>
+              <div className="flex h-full items-center justify-center rounded-3xl bg-gray-50 dark:bg-white/[0.04]">
+                <span className="text-sm text-gray-400 dark:text-white/25">No recent check-in</span>
+              </div>
             )}
       </div>
 
@@ -112,11 +112,20 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
               <span className="truncate text-gray-500 dark:text-white/60">{activity.name}</span>
             </div>
             <div className="ml-4 flex shrink-0 items-center gap-3 text-[13px] text-gray-400 dark:text-white/40">
-              <span>{(activity.distance / 1000).toFixed(2)} km</span>
+              <span>
+                {(activity.distance / 1000).toFixed(2)}
+                {' '}
+                km
+              </span>
               {activity.elevation_gain > 0 && (
                 <>
                   <span className="text-gray-300 dark:text-white/20">·</span>
-                  <span>↑ {Math.round(activity.elevation_gain)} m</span>
+                  <span>
+                    ↑
+                    {Math.round(activity.elevation_gain)}
+                    {' '}
+                    m
+                  </span>
                 </>
               )}
               <span className="text-gray-300 dark:text-white/20">·</span>

@@ -1,29 +1,30 @@
 {
   "compilerOptions": {
-   "target": "ESNext", 
+    "incremental": true,
+    "target": "ESNext",
+    "jsx": "react-jsx",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
     "allowJs": true,
-    "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
+    "skipLibCheck": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/timestamp.js"  ],
+    "**/*.tsx",
+    "pages/timestamp.js"
+  ],
   "exclude": [
     "node_modules"
   ]

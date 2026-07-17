@@ -62,9 +62,9 @@ pages/index.tsx
 `map.setStyle()` wipes **all** custom sources and layers. To preserve them across theme switches, the observer toggles `isLoaded` around the style swap:
 
 ```ts
-setCtx({ map, isLoaded: false })   // unmounts children → cleanup removes their layers
+setCtx({ map, isLoaded: false }) // unmounts children → cleanup removes their layers
 map.setStyle(next)
-map.once('idle', () => setCtx({ map, isLoaded: true }))  // remounts children → effects re-add layers
+map.once('idle', () => setCtx({ map, isLoaded: true })) // remounts children → effects re-add layers
 ```
 
 `idle` fires 100–500 ms after `setStyle` (after the style is fully settled), which is well after React's passive cleanup effects have run (~5 ms). This guarantees children remount into a ready map.

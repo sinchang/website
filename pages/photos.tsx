@@ -79,7 +79,7 @@ const PHOTOS = [
 
 type Photo = typeof PHOTOS[number]
 
-function Lightbox({ photo, onClose }: { photo: Photo; onClose: () => void }) {
+function Lightbox({ photo, onClose }: { photo: Photo, onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape')
