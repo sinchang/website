@@ -96,48 +96,74 @@ async function fetchCheckinMarkers(): Promise<CheckinData> {
   }
 }
 
-export async function getStaticProps() {
-  const items = await letterboxd('sinchang')
-  const item = items?.[0] as Diary
+async function safeJson<T>(url: string): Promise<T | null> {
+  try {
+    const res = await fetch(url)
+    if (!res.ok)
+      return null
+    return await res.json() as T
+  }
+  catch {
+    return null
+  }
+}
 
-  const [checkInRes, activitiesRes, spotifyRes, checkinData] = await Promise.all([
-    fetch('https://sinchang-checkin.web.val.run'),
-    fetch('https://raw.githubusercontent.com/XChangLab/workouts_page/master/src/static/activities.json'),
-    fetch('https://now-playing-profile-rho.vercel.app/now-playing?json'),
+async function fetchFilm() {
+  try {
+    const items = await letterboxd('sinchang')
+    const item = items?.[0] as Diary | undefined
+    if (!item)
+      return null
+    return {
+      uri: item.uri ?? null,
+      image: item.film?.image?.large ?? null,
+      ratingText: item.rating?.text ?? null,
+    }
+  }
+  catch {
+    return null
+  }
+}
+
+interface CheckInDetails {
+  venue: string
+  lat: string
+  lng: string
+  cc: string
+  location: string
+}
+
+export async function getStaticProps() {
+  const [film, checkInDetails, activitiesData, spotifyJson, checkinData] = await Promise.all([
+    fetchFilm(),
+    safeJson<CheckInDetails>('https://sinchang-checkin.web.val.run'),
+    safeJson<Activity[]>('https://raw.githubusercontent.com/XChangLab/workouts_page/master/src/static/activities.json'),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    safeJson<any>('https://now-playing-profile-rho.vercel.app/now-playing?json'),
     fetchCheckinMarkers(),
   ])
 
-  const checkInDetails = await checkInRes.json()
-  const activitiesData: Activity[] = await activitiesRes.json()
-
-  const activity = activitiesData
+  const activity = (activitiesData ?? [])
     .filter(a => SUPPORTED_TYPES.includes(a.type.toLowerCase()))
     .sort((a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime())[0] ?? null
 
   let spotify: SpotifyData | null = null
-  if (spotifyRes.ok) {
-    const spotifyJson = await spotifyRes.json()
-    if (spotifyJson?.item && Object.keys(spotifyJson.item).length > 0) {
-      spotify = {
-        isPlaying: spotifyJson.isPlaying ?? false,
-        trackName: spotifyJson.item.name,
-        artistName: spotifyJson.item.artists?.[0]?.name ?? '',
-        albumName: spotifyJson.item.album?.name ?? '',
-        albumArt: spotifyJson.item.album?.images?.[2]?.url ?? spotifyJson.item.album?.images?.[0]?.url ?? '',
-        trackUrl: spotifyJson.item.external_urls?.spotify ?? '',
-        progress: spotifyJson.progress ?? 0,
-        duration: spotifyJson.item.duration_ms,
-      }
+  if (spotifyJson?.item && Object.keys(spotifyJson.item).length > 0) {
+    spotify = {
+      isPlaying: spotifyJson.isPlaying ?? false,
+      trackName: spotifyJson.item.name,
+      artistName: spotifyJson.item.artists?.[0]?.name ?? '',
+      albumName: spotifyJson.item.album?.name ?? '',
+      albumArt: spotifyJson.item.album?.images?.[2]?.url ?? spotifyJson.item.album?.images?.[0]?.url ?? '',
+      trackUrl: spotifyJson.item.external_urls?.spotify ?? '',
+      progress: spotifyJson.progress ?? 0,
+      duration: spotifyJson.item.duration_ms,
     }
   }
 
   return {
     props: {
-      film: {
-        uri: item?.uri,
-        image: item?.film?.image?.large,
-        ratingText: item.rating.text,
-      },
+      film,
       checkInDetails,
       activity,
       spotify,

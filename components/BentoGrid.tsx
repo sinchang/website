@@ -40,17 +40,17 @@ const TYPE_LABELS: Record<string, string> = {
 
 export default function BentoGrid({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: {
   film: {
-    image: string | undefined
-    uri: string
-    ratingText: string
-  }
+    image: string | null
+    uri: string | null
+    ratingText: string | null
+  } | null
   checkInDetails: {
     venue: string
     lat: string
     lng: string
     cc: string
     location: string
-  }
+  } | null
   activity: Activity | null
   spotify: SpotifyData | null
   checkinMarkers: [number, number][]
@@ -60,25 +60,33 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
     <div className="mt-6 grid grid-cols-2 gap-3">
 
       {/* Film card — always dark since it's a poster with a gradient overlay */}
-      <a
-        href={film?.uri?.replace('sinchang', '')}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
-      >
-        {film?.image && (
-          <img
-            src={film.image}
-            alt="Now watching"
-            className="absolute inset-0 h-full w-full object-cover opacity-80"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 p-4">
-          <p className="mb-1 text-[10px] uppercase tracking-widest text-white/[0.35]">Watching</p>
-          <p className="text-sm font-semibold text-white">{film?.ratingText}</p>
-        </div>
-      </a>
+      {film
+        ? (
+          <a
+            href={film.uri?.replace('sinchang', '')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
+          >
+            {film.image && (
+              <img
+                src={film.image}
+                alt="Now watching"
+                className="absolute inset-0 h-full w-full object-cover opacity-80"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-4">
+              <p className="mb-1 text-[10px] uppercase tracking-widest text-white/[0.35]">Watching</p>
+              <p className="text-sm font-semibold text-white">{film.ratingText}</p>
+            </div>
+          </a>
+          )
+        : (
+          <div className="flex h-[240px] items-center justify-center rounded-3xl border border-black/[0.08] bg-gray-50 dark:border-white/[0.08] dark:bg-white/[0.04]">
+            <span className="text-sm text-gray-400 dark:text-white/25">No recent film</span>
+          </div>
+          )}
 
       {/* Check-in map */}
       <div className="h-[240px] overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
