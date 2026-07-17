@@ -138,7 +138,6 @@ export async function getStaticProps() {
     fetchFilm(),
     safeJson<CheckInDetails>('https://sinchang-checkin.web.val.run'),
     safeJson<Activity[]>('https://raw.githubusercontent.com/XChangLab/workouts_page/master/src/static/activities.json'),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     safeJson<any>('https://now-playing-profile-rho.vercel.app/now-playing?json'),
     fetchCheckinMarkers(),
   ])
