@@ -94,7 +94,7 @@ export function ActivityMap({ polyline }: { polyline: string }) {
   const coords = useMemo(() => decodePolyline(polyline), [polyline])
 
   if (!coords.length)
-    return <div className="h-full w-full" />
+    return <div className="size-full" />
 
   const longitudes = coords.map(c => c[0])
   const latitudes = coords.map(c => c[1])
@@ -104,7 +104,7 @@ export function ActivityMap({ polyline }: { polyline: string }) {
   ]
 
   return (
-    <Map center={center} zoom={12} className="h-full w-full">
+    <Map center={center} zoom={12} className="size-full">
       <ActivityOverlay coords={coords} />
       <MapRoute coordinates={coords} color="#FF6464" width={3} opacity={1} />
     </Map>

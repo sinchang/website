@@ -10,7 +10,7 @@ export function CheckIn(checkInDetails: {
 }) {
   return checkInDetails?.venue
     ? (
-        <div className="relative block h-full w-full">
+        <div className="relative block size-full">
           <MapCard latitude={Number(checkInDetails.lat)} longitude={Number(checkInDetails.lng)} location={checkInDetails.location} />
         </div>
       )

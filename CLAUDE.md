@@ -16,11 +16,11 @@ There are no tests. Type-checking with `npx tsc --noEmit` is the primary correct
 
 ## Architecture
 
-**Next.js 14 Pages Router** — no App Router. All data fetching is in `getServerSideProps` in `pages/index.tsx`. There is one page (`/`) and one stub API route (`/api/hello.ts`).
+**Next.js 16 Pages Router** — no App Router. Turbopack is the builder (default in Next 16; there is no webpack config). Pages: `/` (ISR via `getStaticProps` with `revalidate: 60`) and `/photos` (static, mock data).
 
 ### Data flow
 
-`getServerSideProps` in `pages/index.tsx` fans out four parallel fetches:
+`getStaticProps` in `pages/index.tsx` fans out five parallel fetches (film, check-in, activities, Spotify, check-in DB). Every fetch is wrapped in `safeJson()`/`fetchFilm()` helpers that return `null` on failure — a down external API must degrade to an empty card, never fail the ISR build.
 
 | Source | What |
 |---|---|
@@ -35,7 +35,7 @@ All props are serialised as JSON and passed to `<BentoGrid>`.
 
 ### sql.js on Vercel
 
-`sql.js` is used server-side only (inside `getServerSideProps`). The WASM binary lives at `public/sql-wasm.wasm` and is loaded via:
+`sql.js` is used server-side only (inside `getStaticProps`). The WASM binary lives at `public/sql-wasm.wasm` and is loaded via:
 
 ```ts
 initSqlJs({ locateFile: file => path.resolve(process.cwd(), 'public', file) })
@@ -83,22 +83,17 @@ map.once('idle', () => setCtx({ map, isLoaded: true })) // remounts children →
 
 ### Styling conventions
 
-- Tailwind v3 with `@egoist/tailwindcss-icons` (Remix Icon `ri` collection) — icons are utility classes e.g. `i-ri-github-fill`.
-- Use `text-white/[0.35]` (arbitrary fraction) not `text-white/35` (invalid in this Tailwind version).
+- **Tailwind v4** (CSS-first): `styles/globals.css` starts with `@import 'tailwindcss'` and loads the legacy JS config via `@config '../tailwind.config.js'`. The JS config is kept because the `@egoist/tailwindcss-icons` plugin (Remix Icon `ri` collection — utility classes like `i-ri-github-fill`), the `sys-bg-base` custom color, and the dual dark-mode selector can't be expressed in CSS-only config.
+- PostCSS uses `@tailwindcss/postcss` (no `autoprefixer` — v4 handles prefixing).
+- `globals.css` contains a v3→v4 border-color compat layer (`border-color: var(--color-gray-200, currentcolor)`); v4's default is `currentcolor`. Don't remove it without adding explicit border colors everywhere.
+- v4 renamed blur scales: the old `blur-sm` (4px) is now `blur-xs`; `blur-sm` now means 8px. Same for `backdrop-blur-*`.
 - Card shell pattern: `rounded-3xl border border-black/[0.08] dark:border-white/[0.08]` with appropriate bg.
+- Prefer `size-*` over `h-* w-*` pairs and bare spacing over unnecessary arbitrary values (`max-w-168` not `max-w-[672px]`) — `eslint-plugin-tailwindcss` enforces these.
 - Font: Space Grotesk via `--font-space-grotesk` CSS variable, applied as `font-sans` on `<main>`.
 
-### Webpack / bundler notes
+### Linting
 
-`next.config.js` adds browser polyfills (`browserify-fs`, `crypto-browserify`, `stream-browserify`) so that `sql.js` can be imported on the client side if needed. WASM files are handled with `type: 'javascript/auto'`.
-
-### State management
-
-Minimal: a single Jotai atom (`globalAtom`) holds `{ language: 'en-US' }`. TanStack Query v5-alpha is set up but not actively used for data fetching (everything is SSR via `getServerSideProps`).
-
-### Database
-
-`db/schema.ts` defines a Drizzle ORM `love` table on Neon (Postgres). Not used on the homepage currently.
+Flat config in `eslint.config.mjs`: `@antfu/eslint-config` (v9, with `react: true`) + `@next/eslint-plugin-next` (antfu renames the plugin namespace `@next/next` → `next`, so disable comments use `next/no-img-element`) + `eslint-plugin-tailwindcss` v4 (reads the real Tailwind config via `settings.tailwindcss.cssConfigPath: 'styles/globals.css'`). `next lint` no longer exists; `next build` does not lint. `react-refresh/only-export-components` is off — Pages Router files must export `getStaticProps` alongside components.
 
 ## Git workflow
 

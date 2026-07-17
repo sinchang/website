@@ -83,19 +83,19 @@ export function CheckinsGlobe({ markers, count, countryCount }: CheckinsGlobePro
         {/* Stats */}
         <div className="flex flex-col justify-center gap-4 p-6 pr-0">
           <div>
-            <p className="mb-1 text-[10px] uppercase tracking-widest text-gray-500 dark:text-white/[0.35]">Check-ins</p>
+            <p className="mb-1 text-[10px] tracking-widest text-gray-500 uppercase dark:text-white/[0.35]">Check-ins</p>
             <p className="text-4xl font-bold text-gray-900 dark:text-white">{count.toLocaleString()}</p>
           </div>
           {countryCount > 0 && (
             <div>
-              <p className="mb-1 text-[10px] uppercase tracking-widest text-gray-500 dark:text-white/[0.35]">Countries</p>
+              <p className="mb-1 text-[10px] tracking-widest text-gray-500 uppercase dark:text-white/[0.35]">Countries</p>
               <p className="text-4xl font-bold text-gray-900 dark:text-white">{countryCount}</p>
             </div>
           )}
         </div>
 
         {/* Globe */}
-        <div className="relative ml-auto h-[280px] w-[280px] shrink-0">
+        <div className="relative ml-auto size-[280px] shrink-0">
           <canvas
             ref={canvasRef}
             style={{ width: '100%', height: '100%', display: 'block', cursor: 'grab' }}

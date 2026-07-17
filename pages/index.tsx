@@ -11,7 +11,7 @@ import { ToggleTheme } from '../components/ToggleTheme'
 
 export default function Home({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
+    <div className="mx-auto w-full max-w-168 px-4 pt-12 pb-16 md:px-6">
       <div className="flex items-center gap-4">
         <Avatar src="https://unavatar.io/github/sinchang" alt="Jeff Wen" width={64} height={64} className="ring-2 ring-black/10 dark:ring-white/10" />
         <div>

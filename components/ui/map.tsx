@@ -85,7 +85,7 @@ export function Map({ center = [0, 0], zoom = 2, className, children }: MapProps
 
   return (
     <MapContext.Provider value={ctx}>
-      <div ref={containerRef} className={className ?? 'h-full w-full'} />
+      <div ref={containerRef} className={className ?? 'size-full'} />
       {ctx.isLoaded && children}
     </MapContext.Provider>
   )

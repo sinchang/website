@@ -1,5 +1,6 @@
 import antfu from '@antfu/eslint-config'
 import nextPlugin from '@next/eslint-plugin-next'
+import tailwind from 'eslint-plugin-tailwindcss'
 
 export default antfu(
   {
@@ -8,6 +9,14 @@ export default antfu(
   },
   nextPlugin.configs.recommended,
   nextPlugin.configs['core-web-vitals'],
+  tailwind.configs.recommended,
+  {
+    settings: {
+      tailwindcss: {
+        cssConfigPath: 'styles/globals.css',
+      },
+    },
+  },
   {
     rules: {
       // Next.js pages must export data-fetching functions alongside the

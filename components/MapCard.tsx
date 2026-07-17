@@ -84,7 +84,7 @@ function PulsingDot({ longitude, latitude }: { longitude: number, latitude: numb
 
 export function MapCard({ latitude, longitude, location }: { latitude: number, longitude: number, location: string }) {
   return (
-    <Map center={[longitude, latitude]} zoom={12} className="relative h-full w-full">
+    <Map center={[longitude, latitude]} zoom={12} className="relative size-full">
       <PulsingDot longitude={longitude} latitude={latitude} />
       {!!location && (
         <div className="absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-[8px] bg-white/70 px-2 py-1.5 text-[14px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06)] backdrop-blur-[20px]">

@@ -91,7 +91,7 @@ function Lightbox({ photo, onClose }: { photo: Photo, onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-xs"
       onClick={onClose}
     >
       <div
@@ -106,7 +106,7 @@ function Lightbox({ photo, onClose }: { photo: Photo, onClose: () => void }) {
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
           <p className="text-sm font-medium text-white">{photo.caption}</p>
           <div className="mt-1 flex items-center gap-2 text-[12px] text-white/60">
-            <span className="i-ri-map-pin-line h-3 w-3" />
+            <span className="i-ri-map-pin-line size-3" />
             <span>{photo.location}</span>
             <span>·</span>
             <span>{photo.date}</span>
@@ -114,9 +114,9 @@ function Lightbox({ photo, onClose }: { photo: Photo, onClose: () => void }) {
         </div>
         <button
           onClick={onClose}
-          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white/80 transition-colors hover:bg-black/70"
+          className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-full bg-black/50 text-white/80 transition-colors hover:bg-black/70"
         >
-          <span className="i-ri-close-line h-4 w-4" />
+          <span className="i-ri-close-line size-4" />
         </button>
       </div>
     </div>
@@ -131,13 +131,13 @@ export default function Photos() {
       <Head>
         <title>Photos — Jeff Wen</title>
       </Head>
-      <div className="mx-auto w-full max-w-[672px] px-4 pb-16 pt-12 md:px-6">
+      <div className="mx-auto w-full max-w-168 px-4 pt-12 pb-16 md:px-6">
         <div className="mb-8 flex items-center gap-3">
           <Link
             href="/"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-gray-400 transition-colors hover:text-gray-700 dark:border-white/[0.08] dark:text-white/40 dark:hover:text-white/80"
+            className="flex size-8 items-center justify-center rounded-full border border-black/[0.08] text-gray-400 transition-colors hover:text-gray-700 dark:border-white/[0.08] dark:text-white/40 dark:hover:text-white/80"
           >
-            <span className="i-ri-arrow-left-line h-4 w-4" />
+            <span className="i-ri-arrow-left-line size-4" />
           </Link>
           <h1 className="text-lg font-semibold text-gray-900 dark:text-white">Photos</h1>
         </div>
@@ -147,18 +147,18 @@ export default function Photos() {
             <div
               key={photo.id}
               onClick={() => setSelected(photo)}
-              className={`group relative cursor-pointer overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-white/[0.04] ${photo.wide ? 'col-span-2 h-[280px]' : 'h-[220px]'}`}
+              className={`group relative cursor-pointer overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-white/[0.04] ${photo.wide ? 'col-span-2 h-70' : 'h-55'}`}
             >
               <img
                 src={photo.src}
                 alt={photo.caption}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute inset-x-0 bottom-0 translate-y-2 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <p className="text-sm font-medium text-white">{photo.caption}</p>
                 <div className="mt-1 flex items-center gap-2 text-[12px] text-white/60">
-                  <span className="i-ri-map-pin-line h-3 w-3" />
+                  <span className="i-ri-map-pin-line size-3" />
                   <span>{photo.location}</span>
                   <span>·</span>
                   <span>{photo.date}</span>

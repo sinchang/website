@@ -5,17 +5,17 @@ export function SocialIcons() {
         href="https://github.com/sinchang"
         target="_blank"
         title="Jeff Wen GitHub"
-        className="h-5 w-5 text-gray-400 transition-colors hover:text-gray-700 dark:text-white/40 dark:hover:text-white/80"
+        className="size-5 text-gray-400 transition-colors hover:text-gray-700 dark:text-white/40 dark:hover:text-white/80"
         rel="noreferrer"
       >
-        <span className="i-ri-github-fill h-full w-full" />
+        <span className="i-ri-github-fill size-full" />
       </a>
       <a
         href="mailto:hi@sinchang.me"
-        className="h-5 w-5 text-gray-400 transition-colors hover:text-gray-700 dark:text-white/40 dark:hover:text-white/80"
+        className="size-5 text-gray-400 transition-colors hover:text-gray-700 dark:text-white/40 dark:hover:text-white/80"
         rel="noreferrer"
       >
-        <span className="i-ri-mail-fill h-full w-full" />
+        <span className="i-ri-mail-fill size-full" />
       </a>
       {/* <Link
         href="/photos"

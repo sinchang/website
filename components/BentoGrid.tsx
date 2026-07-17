@@ -66,30 +66,30 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
               href={film.uri?.replace('sinchang', '')}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative flex h-[240px] flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
+              className="relative flex h-60 flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-100 dark:border-white/[0.08] dark:bg-[rgb(18,13,30)]"
             >
               {film.image && (
                 <img
                   src={film.image}
                   alt="Now watching"
-                  className="absolute inset-0 h-full w-full object-cover opacity-80"
+                  className="absolute inset-0 size-full object-cover opacity-80"
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4">
-                <p className="mb-1 text-[10px] uppercase tracking-widest text-white/[0.35]">Watching</p>
+                <p className="mb-1 text-[10px] tracking-widest text-white/[0.35] uppercase">Watching</p>
                 <p className="text-sm font-semibold text-white">{film.ratingText}</p>
               </div>
             </a>
           )
         : (
-            <div className="flex h-[240px] items-center justify-center rounded-3xl border border-black/[0.08] bg-gray-50 dark:border-white/[0.08] dark:bg-white/[0.04]">
+            <div className="flex h-60 items-center justify-center rounded-3xl border border-black/[0.08] bg-gray-50 dark:border-white/[0.08] dark:bg-white/[0.04]">
               <span className="text-sm text-gray-400 dark:text-white/25">No recent film</span>
             </div>
           )}
 
       {/* Check-in map */}
-      <div className="h-[240px] overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
+      <div className="h-60 overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
         {checkInDetails?.venue
           ? <CheckIn {...checkInDetails} />
           : (
@@ -101,7 +101,7 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
 
       {/* Activity route map */}
       {activity?.summary_polyline && (
-        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
+        <div className="relative col-span-2 h-70 overflow-hidden rounded-3xl border border-black/[0.08] dark:border-white/[0.08]">
           <ActivityMap polyline={activity.summary_polyline} />
           <div className="absolute inset-x-3 bottom-3 flex items-center justify-between overflow-hidden rounded-2xl bg-white/90 px-4 py-3 backdrop-blur-md dark:bg-black/60">
             <div className="flex min-w-0 items-center gap-2 text-[13px]">
@@ -148,21 +148,21 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
           rel="noopener noreferrer"
           className="col-span-2 flex items-center gap-4 overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-50 p-4 transition-colors hover:bg-gray-100 dark:border-white/[0.12] dark:bg-white/[0.06] dark:hover:bg-white/[0.10]"
         >
-          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl shadow-lg">
+          <div className="relative size-16 shrink-0 overflow-hidden rounded-xl shadow-lg">
             <Image
               src={spotify.albumArt}
               alt={spotify.albumName}
               width={64}
               height={64}
-              className="h-full w-full object-cover"
+              className="size-full object-cover"
             />
           </div>
           <div className="min-w-0 flex-1">
             <div className="mb-1.5 flex items-center gap-1.5">
               {spotify.isPlaying
-                ? <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#1DB954]" />
-                : <span className="h-1.5 w-1.5 rounded-full bg-gray-300 dark:bg-white/20" />}
-              <p className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-white/30">
+                ? <span className="size-1.5 animate-pulse rounded-full bg-[#1DB954]" />
+                : <span className="size-1.5 rounded-full bg-gray-300 dark:bg-white/20" />}
+              <p className="text-[10px] tracking-widest text-gray-400 uppercase dark:text-white/30">
                 {spotify.isPlaying ? 'Now Playing' : 'Last Played'}
               </p>
             </div>
