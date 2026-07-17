@@ -1,8 +1,9 @@
+import type { SpotifyData } from '../lib/spotify'
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
 import React from 'react'
 import { ActivityMap } from './ActivityMap'
 import { CheckIn } from './CheckIn'
+import { SpotifyCard } from './SpotifyCard'
 
 const CheckinsGlobe = dynamic(
   () => import('./CheckinsGlobe').then(m => m.CheckinsGlobe),
@@ -18,17 +19,6 @@ interface Activity {
   start_date: string
   summary_polyline: string
   elevation_gain: number
-}
-
-export interface SpotifyData {
-  isPlaying: boolean
-  trackName: string
-  artistName: string
-  albumName: string
-  albumArt: string
-  trackUrl: string
-  progress: number
-  duration: number
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -140,46 +130,8 @@ export default function BentoGrid({ film, checkInDetails, activity, spotify, che
         <CheckinsGlobe markers={checkinMarkers} count={checkinMarkers.length} countryCount={checkinCountryCount} />
       )}
 
-      {/* Spotify now-playing */}
-      {spotify && (
-        <a
-          href={spotify.trackUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="col-span-2 flex items-center gap-4 overflow-hidden rounded-3xl border border-black/[0.08] bg-gray-50 p-4 transition-colors hover:bg-gray-100 dark:border-white/[0.12] dark:bg-white/[0.06] dark:hover:bg-white/[0.10]"
-        >
-          <div className="relative size-16 shrink-0 overflow-hidden rounded-xl shadow-lg">
-            <Image
-              src={spotify.albumArt}
-              alt={spotify.albumName}
-              width={64}
-              height={64}
-              className="size-full object-cover"
-            />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="mb-1.5 flex items-center gap-1.5">
-              {spotify.isPlaying
-                ? <span className="size-1.5 animate-pulse rounded-full bg-[#1DB954]" />
-                : <span className="size-1.5 rounded-full bg-gray-300 dark:bg-white/20" />}
-              <p className="text-[10px] tracking-widest text-gray-400 uppercase dark:text-white/30">
-                {spotify.isPlaying ? 'Now Playing' : 'Last Played'}
-              </p>
-            </div>
-            <p className="truncate text-sm font-semibold text-gray-900 dark:text-white">{spotify.trackName}</p>
-            <p className="truncate text-[13px] text-gray-500 dark:text-white/50">{spotify.artistName}</p>
-            <p className="truncate text-[12px] text-gray-400 dark:text-white/25">{spotify.albumName}</p>
-            {spotify.isPlaying && (
-              <div className="mt-2.5 h-[3px] w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white/10">
-                <div
-                  className="h-full rounded-full bg-[#1DB954]"
-                  style={{ width: `${(spotify.progress / spotify.duration) * 100}%` }}
-                />
-              </div>
-            )}
-          </div>
-        </a>
-      )}
+      {/* Spotify now-playing — hydrates from ISR data, then polls /api/now-playing */}
+      <SpotifyCard initial={spotify} />
 
     </div>
   )

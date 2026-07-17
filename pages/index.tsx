@@ -1,6 +1,5 @@
 import type { Diary } from 'letterboxd-api'
 import type { InferGetStaticPropsType } from 'next'
-import type { SpotifyData } from '../components/BentoGrid'
 import path from 'node:path'
 import process from 'node:process'
 import letterboxd from 'letterboxd-api'
@@ -8,6 +7,7 @@ import { Avatar } from '../components/avatar'
 import BentoGrid from '../components/BentoGrid'
 import { SocialIcons } from '../components/SocialIcons'
 import { ToggleTheme } from '../components/ToggleTheme'
+import { mapSpotify, NOW_PLAYING_URL } from '../lib/spotify'
 
 export default function Home({ film, checkInDetails, activity, spotify, checkinMarkers, checkinCountryCount }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -140,7 +140,7 @@ export async function getStaticProps() {
     fetchFilm(),
     safeJson<CheckInDetails>('https://sinchang-checkin.web.val.run'),
     safeJson<Activity[]>('https://raw.githubusercontent.com/XChangLab/workouts_page/master/src/static/activities.json'),
-    safeJson<any>('https://now-playing-profile-rho.vercel.app/now-playing?json'),
+    safeJson<any>(NOW_PLAYING_URL),
     fetchCheckinMarkers(),
   ])
 
@@ -148,19 +148,7 @@ export async function getStaticProps() {
     .filter(a => SUPPORTED_TYPES.includes(a.type.toLowerCase()))
     .sort((a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime())[0] ?? null
 
-  let spotify: SpotifyData | null = null
-  if (spotifyJson?.item && Object.keys(spotifyJson.item).length > 0) {
-    spotify = {
-      isPlaying: spotifyJson.isPlaying ?? false,
-      trackName: spotifyJson.item.name,
-      artistName: spotifyJson.item.artists?.[0]?.name ?? '',
-      albumName: spotifyJson.item.album?.name ?? '',
-      albumArt: spotifyJson.item.album?.images?.[2]?.url ?? spotifyJson.item.album?.images?.[0]?.url ?? '',
-      trackUrl: spotifyJson.item.external_urls?.spotify ?? '',
-      progress: spotifyJson.progress ?? 0,
-      duration: spotifyJson.item.duration_ms,
-    }
-  }
+  const spotify = mapSpotify(spotifyJson)
 
   return {
     props: {
