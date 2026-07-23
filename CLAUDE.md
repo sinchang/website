@@ -43,6 +43,8 @@ initSqlJs({ locateFile: file => path.resolve(process.cwd(), 'public', file) })
 
 The schema of `checkins.db` is discovered dynamically at runtime via `PRAGMA table_info` — column names for lat/lng/country are found by regex rather than hardcoded.
 
+Because the wasm path is computed at runtime, Next's output file tracing can't discover it, and ISR revalidation on Vercel fails with `ENOENT: /var/task/public/sql-wasm.wasm` unless the file is force-included via `outputFileTracingIncludes: { '/': ['./public/sql-wasm.wasm'] }` in `next.config.js`. Don't remove that entry.
+
 ### Component tree
 
 ```
